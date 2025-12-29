@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Portfolio: Classifier</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Jake Sutcliffe">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Content/icon.png">
+    <script src="../JS/script.js" defer></script>
+</head>
+
+<body>
+    <hr class="navbox"></hr>
+    <nav>
+        <a href="../index.html">Overview</a>
+        <a href="../information/about.html">About Me</a>
+        <!--<a href="extra.html">Additional Projects</a>-->
+        <a class="right-group" id="contact-link">Contact Info</a>
+    </nav>
+
+    <div id="contact-dropdown" class="dropdown">
+        <ul>
+            <li><a href="mailto:jake.sutcliffe.t@gmail.com"><img class="project-link" src="../Content/emailicon.svg">E-Mail</a></li>
+            <li><a href="https://www.linkedin.com/in/jake-sutcliffe-480064344/"><img class="project-link" src="../Content/linkedinicon.svg">LinkedIn</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <h1 class="splash classifier-splash">Classifier</h1>
+    </header>
+
+    <hr class="break">
+
+    <main>
+        <div class="project-container">
+            <article class="project-article info">
+                <h2>Classifier</h2>
+                <h3>More Information</h3>
+
+                This project was created over a week, and is a classifier model built to identify the number represented by an image in the <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.
+                <br><br>
+                To create this project, I had to learn a large number of statistical techniques for classification, such as <a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis">LDA</a>,
+                 <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a>, <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">KL divergence</a>, and
+                 <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-NN classification</a>.
+
+                <h3>Concept and Features</h3>
+
+                This classifier was built for the MNIST database, a popular database for training and testing machine learning and classification systems due to its relatively large size (60,000 training images,
+                 10,000 testing images) and high data quality. It uses 28x28 greyscale images of numbers 0-9. I used 5,000 of these images with my classifier to increase speed.
+                <br><br>
+                My classifier was built to specifically identify noisy and masked MNIST data, and so features extensive dimensionality reduction - a technique used to simplify high-dimensional data, which in my case,
+                 after extensive parameter tuning, reduced the 784 parameters (28x28) down to 62 parameters. Because fewer, more important parameters are used, the system is much more resilient to noise, as noise typically
+                 has the greatest impact on empty pixels - which are usually unused as they are usually unimportant and portray little data, causing dimensionality reduction to discard them.
+                <br><br>
+                With my reduced parameters, I was able to achieve 95% accuracy on noisy data and 79% accuracy on masked data, which are relatively good results considering the reduced dataset that this model was trained
+                 on.
+
+                <h3>Challenges</h3>
+
+                This project necessitated learning a large amount of the mathematics used in image classification and translating it as efficiently as possible to Python. To help in handling large array, vector,
+                 and matrix operations, I learned the basics of NumPy, an efficient C-based Python library. Using the broadcasting feature of NumPy arrays allows functions to be quickly
+                 applied to all elements of an array, allowing for the model to be lazy-trained and classify 1,000 testing images within 5 seconds of it being run.
+                <br><br>
+                Additionally, there are many possible techniques for dimensionality reduction and classification, and it is hard to know which one is perfect for a given application. Initially, LDA - a technique used
+                 to reduce the dimensions of a dataset to a few dimensions which provide the most distinction between options - was used in conjunction with PCA, however this was found to reduce performance significantly,
+                 especially on masked data, and so was removed, leaving only PCA and KL divergence for dimensionality reduction. This amongst other techniques had to be gradually tweaked, such as classifier originally using
+                 Euclidean distance instead of cosine distance, which was also found to massively reduce performance on masked data.
+
+                <h3>Skills Developed</h3>
+
+                <span class="info-tag">Python</span> <span class="info-tag">Classification</span> <span class="info-tag">Statistics</span>
+            </article>
+            <article class="project-article info">
+                <h3>Demo</h3>
+
+                A typical video demo is unfortunately not possible in this case due to the nature of the program - only the accuracy values are returned at the end, and the data used is unintelligible until classified.
+                <br> 
+                Instead, I'll show some sample data which was used to test my classifier.
+                
+                <h3>Noisy</h3>
+
+                <div class="image-holder">
+                    <img class="mnist-image" src="../Content/noisy.png">
+                </div>
+
+                <h3>Masked</h3>
+
+                <div class="image-holder">
+                    <img class="mnist-image"  src="../Content/masked.png">
+                </div>
+
+                <h3>Explanation</h3>
+
+                This shows a sample of the images used to test my model. These were picked abritrarily from the dataset.
+            </article>
+        </div>
+    </main>
+</body>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Portfolio: Space Golf</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Jake Sutcliffe">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Content/icon.png">
+    <script src="../JS/script.js" defer></script>
+</head>
+
+<body>
+    <hr class="navbox"></hr>
+    <nav>
+        <a href="../index.html">Overview</a>
+        <a href="../information/about.html">About Me</a>
+        <!--<a href="extra.html">Additional Projects</a>-->
+        <a class="right-group" id="contact-link">Contact Info</a>
+    </nav>
+
+    <div id="contact-dropdown" class="dropdown">
+        <ul>
+            <li><a href="mailto:jake.sutcliffe.t@gmail.com"><img class="project-link" src="../Content/emailicon.svg">E-Mail</a></li>
+            <li><a href="https://www.linkedin.com/in/jake-sutcliffe-480064344/"><img class="project-link" src="../Content/linkedinicon.svg">LinkedIn</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <h1 class="splash spacegolf-splash">Space Golf</h1>
+    </header>
+
+    <hr class="break">
+
+    <main>
+        <div class="project-container">
+            <article class="project-article info">
+                <h2>Space Golf</h2>
+                <h3>More Information</h3>
+
+                This project was built over the course of 3 months for the final assignment as a part of my A level Computer Science course.
+                <br><br>
+                To create this project, I had to learn C#, as this is what Unity (the game engine which I used) requires.
+                
+                <h3>Concept and Features</h3>
+
+                In this game, players must hit a golf ball to a flag as fast as possible and in as few swings as possible, utilising gravity to do so.
+                <br><br>
+                To allow players to do this, they are given a variably powered swing
+                 alongside an omnidirectional double jump for minor trajectory correction. The game features 7 levels of varying difficulty - 5 of which can be
+                 played multiplayer, each showcasing different mechanics to attempt to make gravity a much more intuitive concept.
+
+                <h3>Challenges</h3>
+
+                With this being my first large project, I went into this with my prior mindset of very quickly producing a prototype, adding more functionality onto the prototype rapidly and then being done.
+                 This eventually produced an incomprehensible buggy mess as the codebase expanded, forcing me to refactor huge chunks of the code and self-teach the fundamentals of Software Engineering.
+                <br><br>
+                This was also the first time I had to produce a real user interface - most of my projects before this were just prototypes, and they were designed to only be used by me. While the end product
+                 is not amazing, this was a great learning experience.
+
+                <h3>Skills Developed</h3>
+
+                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Development</span> <span class="info-tag">UX/UI design</span>
+            </article>
+            <article class="project-article info">
+                <h3>Demo</h3>
+
+                <div class="video-holder">
+                    <iframe src="https://www.youtube.com/embed/asR_lXg8EYc?vq=hd720" allow="fullscreen"></iframe>
+                </div>
+
+                <h3>Explanation</h3>
+
+                This demo shows a few levels from the game played in both singleplayer and multiplayer modes. The most prominently displayed features here are the basic swing, its velocity calculated based on the
+                 distance and direction from the initial click to the current mouse position. This does not scale linearly, as I found that linear scaling is unintuitive with gravity, as velocity does not linearly
+                 correlate with distance travelled.
+                <br><br>
+                Also prominently displayed is the double jump feature, its use represented by the blue bar. This has a constant power and is designed to be predictable and help players course correct effectively.
+                <br><br>
+                Also shown is the multiplayer, in which players take turns taking shots. Each player has their own level timer which only decrements while they play. Some levels are blocked off during multiplayer
+                 as these are unstable levels, where the level degrades the longer players spend, which is unfortunately incompatible with the current system of concurrent multiplayer play.
+            </article>
+        </div>
+    </main>
+</body>

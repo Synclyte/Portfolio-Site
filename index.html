@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Jake Sutcliffe">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Content/icon.png">
+    <script src="JS/script.js" defer></script>
+</head>
+
+<body>
+    <!--
+    <hr class="navbox"></hr>
+    <nav>
+        <a href="index.html">Overview</a>
+        <a href="information/about.html">About Me</a>
+        <a href="projects/extra.html">Additional Projects</a>
+        <a class="right-group" id="contact-link">Contact Info</a>
+    </nav>
+
+    <div id="contact-dropdown" class="dropdown dropdown-button">
+        <ul>
+            <li><a href="mailto:jake.sutcliffe.t@gmail.com"><img class="project-link" src="Content/emailicon.svg">E-Mail</a></li>
+            <li><a href="https://www.linkedin.com/in/jake-sutcliffe-480064344/"><img class="project-link" src="Content/linkedinicon.svg">LinkedIn</a></li>
+        </ul>
+    </div>
+-->
+
+    <header>
+        <div class="header-container" id="header-box">
+            <!-- basic 3D render WIP -->
+            <canvas id="header-canvas"></canvas>
+            <div class="header-text">
+                <div class="header-title">
+                    <h1 class="nopad">Jake Sutcliffe</h1>
+                    <h2 class="nopad">
+                        Y3 Computer Science Undergraduate<br>
+                        University of Sheffield</h2>
+                </div>
+                <p>
+                    Test
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <hr class="break">
+
+        <section>
+            <h1>Languages</h1>
+
+            Click on a language for information on my usage.
+            <div class="language-grid">
+                <article class="project-article language-article">
+                    <h3 class="nopad">Python</h3><hr class="tagbreak">
+                    <span class="info-tag">Familiar</span><hr class="tagbreak">
+                    Worked in for over 2 years. Used in major project <a href="projects/classifier.html">Classifier</a>.<br>
+                </article>
+                <article class="project-article language-article">
+                    <h3 class="nopad">C#</h3><hr class="tagbreak">
+                    <span class="info-tag">Familiar</span> <hr class="tagbreak">
+                    Worked in for 3 months. Used in major projects <a href="projects/spacegolf.html">Space Golf</a> and <a href="projects/alchemygame.html">Alchemy Game</a>.<br>
+                </article>
+                <article class="project-article language-article">
+                    <h3 class="nopad">Java</h3><hr class="tagbreak">
+                    <span class="info-tag">Familiar</span> <hr class="tagbreak">
+                    Worked in for over 1 year. Used in major project <a href="projects/dbexplorer.html">Database Explorer</a>.<br>
+                </article>
+                <article class="project-article language-article">
+                    <h3 class="nopad">Haskell</h3><hr class="tagbreak">
+                    <span class="info-tag">Intermediate</span><hr class="tagbreak">
+                    Worked in for 3 months. Used in major project <a href="projects/poker.html">Poker</a>.<br>
+                </article>
+                <article class="project-article language-article">
+                    <h3 class="nopad">Javascript</h3><hr class="tagbreak">
+                    <span class="info-tag">Intermediate</span><hr class="tagbreak">
+                    Worked in for 3 months.<br>
+                </article>
+                <article class="project-article language-article">
+                    <h3 class="nopad">Ruby</h3><hr class="tagbreak">
+                    <span class="info-tag">Intermediate</span><hr class="tagbreak">
+                    Worked in for 3 months.<br>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h1>Projects</h1>
+
+            <div class="project-container">
+
+                <article class="project-article" data-video="asR_lXg8EYc">
+                    <div class="project-parallax spacegolf">
+                        <h3>
+                            Space Golf
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2023</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">C#</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in C# using the Unity game engine. It is a 2D physics-based game about golf in space.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                Test text
+                            </div>
+                            <div class="project-video"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article" data-video="u29MLNapuhQ">
+                    <div class="project-parallax alchemygame">
+                        <h3>
+                            Alchemy Game
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">C#</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in C# using the Unity game engine. It is a 3D game about time management and cooking.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                alchemy game text
+                            </div>
+                            <div class="project-video"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article" data-video="bicAS14-vLk">
+                    <div class="project-parallax dbexplorer">
+                        <h3 class="inverse-colour">
+                            Database Explorer
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">Java</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in Java using JSwing for the GUI. It is a graphical application designed for querying a database.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                db explorer text
+                            </div>
+                            <div class="project-video"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article" data-video="bYqru-7I91M">
+                    <div class="project-parallax poker">
+                        <h3>
+                            Poker
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">AI</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in pure Haskell. It is a CLI-based game designed to simulate games of Texas Hold Em' poker between both bots and humans.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                poker text
+                            </div>
+                            <div class="project-video"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article">
+                    <div class="project-parallax classifier">
+                        <h3>
+                            Classifier
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">Python</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Classification</span> <span class="info-tag">AI</span>
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in Python using NumPy and SciPy. It is a classifier designed to classify images of numbers in the MNIST dataset.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                classifier text
+                            </div>
+                            <div class="project-images">
+
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <br>
+        </section>
+    </main>
+</body>

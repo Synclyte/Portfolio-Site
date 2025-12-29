@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Portfolio: Poker</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Jake Sutcliffe">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Content/icon.png">
+    <script src="../JS/script.js" defer></script>
+</head>
+
+<body>
+    <hr class="navbox"></hr>
+    <nav>
+        <a href="../index.html">Overview</a>
+        <a href="../information/about.html">About Me</a>
+        <!--<a href="extra.html">Additional Projects</a>-->
+        <a class="right-group" id="contact-link">Contact Info</a>
+    </nav>
+
+    <div id="contact-dropdown" class="dropdown">
+        <ul>
+            <li><a href="mailto:jake.sutcliffe.t@gmail.com"><img class="project-link" src="../Content/emailicon.svg">E-Mail</a></li>
+            <li><a href="https://www.linkedin.com/in/jake-sutcliffe-480064344/"><img class="project-link" src="../Content/linkedinicon.svg">LinkedIn</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <h1 class="splash poker-splash">Poker</h1>
+    </header>
+
+    <hr class="break">
+
+    <main>
+        <div class="project-container">
+            <article class="project-article info">
+                <h2>Poker</h2>
+                <h3>More Information</h3>
+
+                This project was created over around three weeks, and is a recreation of Texas Hold Em' poker, complete with support for AI bots and Jokers.
+                <br><br>
+                To create this project, I had to learn an entirely new programming paradigm - functional programming. Haskell is a pure functional language and thus works very differently from the procedural and 
+                 object-oriented programming languages which I typically use.
+
+                <h3>Concept and Features</h3>
+
+                This game is a recreation of <a href="https://en.wikipedia.org/wiki/Texas_hold_%27em" target="_blank">Texas Hold Em' poker</a>, a popular card game.
+                <br><br>
+                In the version which I created, any number of human players can play alongside any combination of AI strategy - of which there are 4 implemented.
+                <ul>
+                    <li>A random AI, which makes moves entirely based on chance without considering the game state.</li>
+                    <li>A passive AI, an extension of the random AI with more passive tunings, which moves based on the current bet amount.</li>
+                    <li>An aggressive AI, an extension of the random AI with more aggressive tunings, which moves based on its chip advantage.</li>
+                    <li>A smart AI, which uses a complex function to evaluate its hand and how it should fare relatively, alongside a fuzzy logic-based decision tree to decide whether a bet is worth taking.</li>
+                </ul>
+                Additionally, Jokers were implemented as wildcards. Any number can be added to the deck, and will always produce the best possible result.
+
+                <h3>Challenges</h3>
+
+                This project necessitated learning an entierely new programming paradigm. Haskell, amongst many functional programming languages enforces a few strange practises, the most striking of which being
+                 the inherent limitation on the length of a function. The lack of a true for or while loop in the language forces a recursive solution to most problems, resulting in many functions and many
+                 function calls to accomplish what a single function can do in most other programming languages.
+                <br><br>
+                Other major complications included implementing an initially unplanned feature - Jokers. The addition of Jokers required a rewrite of all functions related to checking hand strength and getting a
+                 certain hand type. These rewrites typically significantly increased complexity as the logic to always get a Joker in the correct place is sometimes quite complex. One notably complex example was
+                 checking for straights - the function for this needs to prioritise making Jokers into as a high a card as possible while also producing a working straight every time, no matter where gaps in the
+                 straight may be.
+                <br><br>
+                Finally, the last major challenge was debugging in Haskell. Haskell is not only a pure functional programming language, but also evaluates expressions lazily, meaning that values are not calculated
+                 until they are required elsewhere in the program. This makes debugging far harder than it should be, as the debug trace will also not be evaluated unless the expression itself is, making debug
+                 behaviour unpredictable - for example, at one point in my project, I accidentally produced an infinitely recursive function and could not locate the cause. This was due to the infinite recursion
+                 occurring many lines down in a function from where the broken function was called. 
+
+                <h3>Skills Developed</h3>
+
+                <span class="info-tag">Haskell</span> <span class="info-tag">Software Development</span>
+            </article>
+            <article class="project-article info">
+                <h3>Demo</h3>
+
+                <div class="video-holder">
+                    <iframe src="https://www.youtube.com/embed/bYqru-7I91M?vq=hd720" allow="fullscreen"></iframe>
+                </div>
+
+                <h3>Explanation</h3>
+
+                This demo first displays a game between a human player and four bots, each with one of the AI patterns outlined above. Several hands are played and the general game loop is shown, alongside displaying
+                 some edge cases to show the robustness of the solution. Jokers are also included, and can be seen working as intended.
+                <br><br>
+                Then, a game between 8 bots is shown, with 2 bots of each type, to attempt to display scalability of the program. Up to 23 players are technically supported (any more meaning there would not be enough
+                 cards in a standard deck), alongside support for changing starting chips, joker count, and rounds played amongst other options.
+            </article>
+        </div>
+    </main>
+</body>
