@@ -28,6 +28,13 @@
 -->
 
     <header>
+        <div id="js-warning">
+            <div>
+                <h3><span class="shake" style="--delay: -0.6s">W</span><span class="shake" style="--delay: -0.5s">a</span><span class="shake" style="--delay: -0.4s">r</span><span class="shake" style="--delay: -0.3s">n</span><span class="shake" style="--delay: -0.2s">i</span><span class="shake" style="--delay: -0.1s">n</span><span class="shake" style="--delay: 0s">g</span>: JavaScript is not enabled on your device</h3><br>
+                The content and functionality of this page heavily relies on JavaScript and may break without it enabled. Please enable JavaScript for a better experience.
+            </div>
+        </div>
+
         <div class="header-container" id="header-box">
             <!-- basic 3D render WIP -->
             <canvas id="header-canvas"></canvas>
@@ -46,42 +53,138 @@
     </header>
 
     <main>
-        <hr class="break">
-
         <section>
             <h1>Languages</h1>
 
             Click on a language for information on my usage.
+
             <div class="language-grid">
-                <article class="project-article language-article">
-                    <h3 class="nopad">Python</h3><hr class="tagbreak">
-                    <span class="info-tag">Familiar</span><hr class="tagbreak">
-                    Worked in for over 2 years. Used in major project <a href="projects/classifier.html">Classifier</a>.<br>
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>Python</h3>
+                        <div class="language-image">
+                            <img class="python" src="Content/python.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Familiar</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Worked in for over five years, having used the NumPy, SciPy, and MatplotLib libraries. Used in the Classifier project.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="project-article language-article">
-                    <h3 class="nopad">C#</h3><hr class="tagbreak">
-                    <span class="info-tag">Familiar</span> <hr class="tagbreak">
-                    Worked in for 3 months. Used in major projects <a href="projects/spacegolf.html">Space Golf</a> and <a href="projects/alchemygame.html">Alchemy Game</a>.<br>
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>Rust</h3>
+                        <div class="language-image">
+                            <img class="rust" src="Content/rust.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Familiar</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Worked in for a few months extensively, as part of a large (and currently unshown) project. The language which I currently use the most.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="project-article language-article">
-                    <h3 class="nopad">Java</h3><hr class="tagbreak">
-                    <span class="info-tag">Familiar</span> <hr class="tagbreak">
-                    Worked in for over 1 year. Used in major project <a href="projects/dbexplorer.html">Database Explorer</a>.<br>
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>Java</h3>
+                        <div class="language-image">
+                            <img class="csharp" src="Content/java.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Familiar</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Used extensively over the past two years. Used with graphical libraries like JSwing and JOGL to produce Database Explorer and Graphical Project.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="project-article language-article">
-                    <h3 class="nopad">Haskell</h3><hr class="tagbreak">
-                    <span class="info-tag">Intermediate</span><hr class="tagbreak">
-                    Worked in for 3 months. Used in major project <a href="projects/poker.html">Poker</a>.<br>
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>C#</h3>
+                        <div class="language-image">
+                            <img class="csharp" src="Content/csharp.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Worked in for a few months during the production of Unity projects, such as Space Golf and Alchemy Game.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="project-article language-article">
-                    <h3 class="nopad">Javascript</h3><hr class="tagbreak">
-                    <span class="info-tag">Intermediate</span><hr class="tagbreak">
-                    Worked in for 3 months.<br>
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>Haskell</h3>
+                        <div class="language-image">
+                            <img class="haskell" src="Content/haskell.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Worked in for a few months to produce the Poker project. A purely functional language, and potentially very concise.</p>
+                        </div>
+                    </div>
                 </article>
-                <article class="project-article language-article">
-                    <h3 class="nopad">Ruby</h3><hr class="tagbreak">
-                    <span class="info-tag">Intermediate</span><hr class="tagbreak">
-                    Worked in for 3 months.<br>
+
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>JavaScript</h3>
+                        <div class="language-image">
+                            <img class="javascript" src="Content/javascript.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Used during the development of multiple web-based projects, including <a href="./index.html">the current site</a>. Worked in for a few months.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="language-article">
+                    <div class="base-language">
+                        <h3>Ruby</h3>
+                        <div class="language-image">
+                            <img class="ruby" src="Content/ruby.svg">
+                        </div>
+                        <div class="tag-div">
+                            <span class="info-tag">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="expanded-language">
+                        <h3>Info</h3>
+                        <div>
+                            <p>Worked in for a few months. No projects displayed on this page are written in Ruby.</p>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
@@ -107,7 +210,7 @@
                             <span class="info-tag">C#</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in C# using the Unity game engine. It is a 2D physics-based game about golf in space.
+                            This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 2D physics-based game about golf in space.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
@@ -134,7 +237,7 @@
                             <span class="info-tag">C#</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in C# using the Unity game engine. It is a 3D game about time management and cooking.
+                            This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 3D game about time management and cooking.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
@@ -161,7 +264,7 @@
                             <span class="info-tag">Java</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in Java using JSwing for the GUI. It is a graphical application designed for querying a database.
+                            This project was written in Java using <a href=https://en.wikipedia.org/wiki/Swing_(Java)>JSwing</a> for the GUI. It is a graphical application designed for querying a database.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
@@ -188,7 +291,7 @@
                             <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">AI</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in pure Haskell. It is a CLI-based game designed to simulate games of Texas Hold Em' poker between both bots and humans.
+                            This project was written in pure Haskell. It is a CLI-based game designed to simulate games of <a href=https://en.wikipedia.org/wiki/Texas_hold_%27em>Texas Hold Em' poker</a> between both bots and humans.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
@@ -222,8 +325,39 @@
                                 classifier text
                             </div>
                             <div class="project-images">
-
+                                <h3>Noisy Data</h3>
+                                <img src="Content/noisy.png" alt="Noisy number samples from the MNIST dataset">
+                                <h3>Masked Data</h3>
+                                <img src="Content/masked.png" alt="Masked number samples from the MNIST dataset">
                             </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article" data-video="bYqru-7I91M">
+                    <div class="project-parallax graphics">
+                        <h3>
+                            Graphical Project
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2025</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">Java</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Graphical</span> <span class="info-tag">Shaders</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in Java using the <a href=https://jogamp.org/jogl/www>JOGL library</a>, a library which aims to import <a href=https://www.opengl.org>OpenGL</a> functionality to Java. It is a basic animated scene
+                             which uses low-level graphical techniques and shaders.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                poker text
+                            </div>
+                            <div class="project-video"></div>
                         </div>
                     </div>
                 </article>

@@ -7,6 +7,7 @@ const rightScroll = document.getElementById("right-scroll");
 const canvas = document.getElementById("header-canvas");
 const headerBox = document.getElementById("header-box");
 const ctx = canvas.getContext("2d");
+const jsWarning = document.getElementById("js-warning");
 
 const players = new Map();
 const sphereVertices = [
@@ -199,6 +200,9 @@ const cubeFaces = [
     [0, 1, 4]
 ]
 
+const fps = 60;
+const mspf = 1000 / fps;
+
 let player = null;
 
 // youtube handling
@@ -211,6 +215,8 @@ var scriptTag = document.getElementsByTagName("script")[0];
 scriptTag.parentNode.insertBefore(tag, scriptTag);
 
 dropdownActive = false;
+
+jsWarning.style.display = "none";
 
 function getScrollAmount() {
     return 100 + window.innerWidth / 5
@@ -374,8 +380,6 @@ window.addEventListener("DOMContentLoaded", function () {
     const rotationCap = 4;
 
     projectCards.forEach(card => {
-        const fps = 60;
-        const mspf = 1000 / fps;
         let rect = card.getBoundingClientRect();
         let active = false;
         let then = performance.now();
@@ -441,7 +445,7 @@ window.addEventListener("DOMContentLoaded", function () {
             active = !active;
             if (active) {
                 if (loadVideo()) {
-                    console.log("loaded video id:" + card.getAttribute("data-video"));
+                    console.log("loaded video id: " + card.getAttribute("data-video"));
                 } else {
                     console.log("failed to load video")
                 }
@@ -467,6 +471,70 @@ window.addEventListener("DOMContentLoaded", function () {
             }, 500);
         })
     })
+
+    function applyLanguageTilt(e, card, rect, scalar, rotationCap) {
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        const degX = (y - 0.5) * -rotationCap * 2 / scalar; 
+        const degY = (x - 0.5) * rotationCap * 2 / scalar;
+        const degMag = Math.sqrt(degX ** 2 + degY ** 2);
+        const degMult = degMag > rotationCap ? rotationCap / degMag : 1;
+
+        card.style.setProperty('--rx', `${degX * degMult}deg`);
+        card.style.setProperty('--ry', `${degY * degMult}deg`);
+    }
+
+    const languageGrid = document.querySelector(".language-grid");
+    const languageCards = document.querySelectorAll(".language-article");
+    const scalar = 8;
+    const cap = 20;
+    let then = performance.now();
+
+    class CardPair {
+        constructor(card) {
+            this.card = card;
+            this.dims = card.getBoundingClientRect();
+            this.active = false;
+
+            window.addEventListener("scroll", () => { this.recalculateDims(); });
+            window.addEventListener("resize", () => { this.recalculateDims(); });
+        }
+
+        recalculateDims() { this.dims = this.card.getBoundingClientRect(); }
+    }
+
+    const cardPairs = languageCards.values().map(card => new CardPair(card)).toArray();
+
+    languageGrid.addEventListener("mousemove", (e) => {
+        let now = performance.now();
+        if (now - then > mspf) {
+            cardPairs.forEach(cardPair => {
+                if (!cardPair.active) applyLanguageTilt(e, cardPair.card, cardPair.dims, scalar, cap);
+            });
+            then = now;
+        }      
+    });
+
+    languageGrid.addEventListener("mouseleave", () => {
+        languageCards.forEach(card => {
+            card.style.setProperty("--rx", "0deg");
+            card.style.setProperty("--ry", "0deg");
+        });
+    });
+
+    cardPairs.forEach(cardPair => {
+        let card = cardPair.card;
+        card.addEventListener("click", (e) => {
+            card.style.setProperty("--rx", "0deg");
+            card.style.setProperty("--ry", "0deg");
+            card.classList.toggle("active-state");
+            cardPair.active = !cardPair.active;
+            cardPairs.forEach(pair => {
+                pair.recalculateDims();
+            })
+        });
+    });
 
     initBackground();
 })
