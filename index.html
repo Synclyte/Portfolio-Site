@@ -6,57 +6,85 @@
     <meta name="author" content="Jake Sutcliffe">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="icon" href="Content/icon.png">
-    <script src="JS/script.js" defer></script>
+    <script src="JS/main.js" defer></script>
+    <script src="JS/render.js" defer></script>
 </head>
 
 <body>
-    <!--
-    <hr class="navbox"></hr>
-    <nav>
-        <a href="index.html">Overview</a>
-        <a href="information/about.html">About Me</a>
-        <a href="projects/extra.html">Additional Projects</a>
-        <a class="right-group" id="contact-link">Contact Info</a>
-    </nav>
-
-    <div id="contact-dropdown" class="dropdown dropdown-button">
-        <ul>
-            <li><a href="mailto:jake.sutcliffe.t@gmail.com"><img class="project-link" src="Content/emailicon.svg">E-Mail</a></li>
-            <li><a href="https://www.linkedin.com/in/jake-sutcliffe-480064344/"><img class="project-link" src="Content/linkedinicon.svg">LinkedIn</a></li>
-        </ul>
-    </div>
--->
-
     <header>
-        <div id="js-warning">
+        <noscript>
             <div>
-                <h3><span class="shake" style="--delay: -0.6s">W</span><span class="shake" style="--delay: -0.5s">a</span><span class="shake" style="--delay: -0.4s">r</span><span class="shake" style="--delay: -0.3s">n</span><span class="shake" style="--delay: -0.2s">i</span><span class="shake" style="--delay: -0.1s">n</span><span class="shake" style="--delay: 0s">g</span>: JavaScript is not enabled on your device</h3><br>
-                The content and functionality of this page heavily relies on JavaScript and may break without it enabled. Please enable JavaScript for a better experience.
+                <h3><span class="shake" style="--delay: -0.6s">W</span><span class="shake" style="--delay: -0.5s">A</span><span class="shake" style="--delay: -0.4s">R</span><span class="shake" style="--delay: -0.3s">N</span><span class="shake" style="--delay: -0.2s">I</span><span class="shake" style="--delay: -0.1s">N</span><span class="shake" style="--delay: 0s">G</span>: JavaScript is not enabled on your device</h3><br>
+                The content and functionality of this page heavily relies on JavaScript and cannot be viewed as intended without it enabled. Please enable JavaScript for a better experience.
             </div>
-        </div>
+        </noscript>
 
         <div class="header-container" id="header-box">
             <!-- basic 3D render WIP -->
-            <canvas id="header-canvas"></canvas>
+            <canvas id="draw"></canvas>
             <div class="header-text">
                 <div class="header-title">
                     <h1 class="nopad">Jake Sutcliffe</h1>
                     <h2 class="nopad">
-                        Y3 Computer Science Undergraduate<br>
-                        University of Sheffield</h2>
+                        Computer Science Undergraduate<br>
+                        University of Sheffield
+                    </h2>
                 </div>
-                <p>
-                    Test
-                </p>
             </div>
         </div>
     </header>
 
     <main>
+        <div class="light-switch">
+            <h4>Toggle Theme</h4>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <h1>Introduction</h1>
+        <section class="text-container about-box">
+            <div>
+            <h2 class="nopad">About Me</h2><br><br>
+            I'm Jake Sutcliffe, a 20-year-old student with a passion for Computer Science, Software Engineering and Statistics.
+            <br><br>
+            I've been producing moderately-sized programming projects for around 7 years and been programming for much longer. Some projects I've built are small such as graphical implementations of Battleships,
+                Naughts and Crosses, and Minesweeper using Pygame in Python, while some are far larger and more complex - such as the projects prominently displayed below.
+            <br><br>
+            Currently, I'm a third year at the University of Sheffield studying an undergraduate degree in Computer Science.
+
+            <h2>Accomplishments</h2>
+            <h3>Degrees</h3>
+            <ul>
+                <li>University of Sheffield, BSc Computer Science, Graduating 2026</li>
+            </ul>
+            <h3>A-Levels</h3>
+            <ul>
+                <li>Edexcel, Mathematics, A*</li>
+                <li>OCR, Computer Science, A</li>
+                <li>AQA, Physics, A</li>
+                <li>AQA, Extended Project Qualification, A</li>
+            </ul>
+            </div>
+            <div class="dynamic-separator"></div>
+            <div>
+            <h2 class="nopad">Contact Me</h2><br><br>
+            <div class="img-grid">
+                <div>
+                <h3 class="nopad">LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/jake-sutcliffe-480064344/"><img src="./Content/linkedinicon.svg" alt="linkedin icon"></a>
+                </div>
+                <div>
+                <h3 class="nopad">E-Mail</h3>
+                <a href="mailto:jake.sutcliffe.t@gmail.com"><img src="./Content/emailicon.svg" alt="email icon"></a>
+                </div>
+            </div>
+            </div>
+        </section>
+
         <section>
             <h1>Languages</h1>
-
-            Click on a language for information on my usage.
 
             <div class="language-grid">
 
@@ -73,7 +101,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Worked in for over five years, having used the NumPy, SciPy, and MatplotLib libraries. Used in the Classifier project.</p>
+                            <p>I have worked in Python for over five years, having used the NumPy, SciPy, and MatplotLib libraries. Used in the <a onclick="scrollToProject(4)">Classifier project</a>.</p>
                         </div>
                     </div>
                 </article>
@@ -91,7 +119,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Worked in for a few months extensively, as part of a large (and currently unshown) project. The language which I currently use the most.</p>
+                            <p>I have worked in Rust for a few months frequently, as part of a large (and currently unshown) project. The language which I currently use the most.</p>
                         </div>
                     </div>
                 </article>
@@ -109,7 +137,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Used extensively over the past two years. Used with graphical libraries like JSwing and JOGL to produce Database Explorer and Graphical Project.</p>
+                            <p>I have used Java extensively over the past two years. Used with graphical libraries like JSwing and JOGL to produce the <a onclick="scrollToProject(2)">Database Explorer</a> and the <a onclick="scrollToProject(5)">Graphical Project</a>.</p>
                         </div>
                     </div>
                 </article>
@@ -127,7 +155,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Worked in for a few months during the production of Unity projects, such as Space Golf and Alchemy Game.</p>
+                            <p>I wrote in C# for a few months during the production of my various Unity projects, including <a onclick="scrollToProject(0)">Space Golf</a> and <a onclick="scrollToProject(1)">Alchemy Game</a>.</p>
                         </div>
                     </div>
                 </article>
@@ -145,7 +173,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Worked in for a few months to produce the Poker project. A purely functional language, and potentially very concise.</p>
+                            <p>I have Worked in Haskell for a few months to produce the <a onclick="scrollToProject(3)">Poker project</a>. I enjoy its conciseness and powerful pattern matching.</p>
                         </div>
                     </div>
                 </article>
@@ -164,7 +192,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Used during the development of multiple web-based projects, including <a href="./index.html">the current site</a>. Worked in for a few months.</p>
+                            <p>I used JavaScript during the development of multiple web-based projects, including <a href="./index.html">the current site</a>. Worked in for a few months.</p>
                         </div>
                     </div>
                 </article>
@@ -182,7 +210,7 @@
                     <div class="expanded-language">
                         <h3>Info</h3>
                         <div>
-                            <p>Worked in for a few months. No projects displayed on this page are written in Ruby.</p>
+                            <p>I have worked in Ruby for a few months. No projects displayed on this page are written in Ruby.</p>
                         </div>
                     </div>
                 </article>
@@ -192,6 +220,7 @@
         <section>
             <h1>Projects</h1>
 
+            <div class="js-enabled">
             <div class="project-container">
 
                 <article class="project-article" data-video="asR_lXg8EYc">
@@ -207,16 +236,43 @@
                             <span class="info-tag">2023</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">C#</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+                            <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
                             This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 2D physics-based game about golf in space.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
-                                Test text
+                                <h3>Information</h3>
+                                This project was built over the course of 3 months for the final assignment as a part of my A level Computer Science course.
+                                <br><br>
+                                To create this project, I had to learn C#, as this is what Unity (the game engine which I used) requires.
+                                
+                                <h3>Concept and Features</h3>
+
+                                In this game, players must hit a golf ball to a flag as fast as possible and in as few swings as possible, utilising gravity to do so.
+                                <br><br>
+                                To allow players to do this, they are given a variably powered swing
+                                alongside an omnidirectional double jump for minor trajectory correction. The game features 7 levels of varying difficulty - 5 of which can be
+                                played multiplayer, each showcasing different mechanics to attempt to make gravity a much more intuitive concept.
+
+                                <h3>Challenges</h3>
+
+                                With this being my first large project, I went into this with my prior mindset of very quickly producing a prototype, adding more functionality onto the prototype rapidly and then being done.
+                                This eventually produced an incomprehensible buggy mess as the codebase expanded, forcing me to refactor huge chunks of the code and self-teach the fundamentals of Software Engineering.
+                                <br><br>
+                                This was also the first time I had to produce a real user interface - most of my projects before this were just prototypes, and they were designed to only be used by me. While the end product
+                                is basic, this was a great learning experience.
+                                
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Development</span> <span class="info-tag">UX/UI design</span>
                             </div>
-                            <div class="project-video"></div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -234,16 +290,52 @@
                             <span class="info-tag">2024</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">C#</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+                            <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
                             This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 3D game about time management and cooking.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
-                                alchemy game text
+                                <h3>Information</h3>
+
+                                This was my second major project. It was created over the span of two weeks, initially created for a game jam - an event where participants are challenged
+                                to make a working, polished game fitting a theme in a short amount of time - individually, or with a team.
+                                <br><br>
+                                To create this project, I had to learn how to 3D model, necessitating me learning Blender. Additionally, I produced this project with a friend, thus I had to learn how to organise development
+                                more efficiently.
+
+                                <h3>Concept and Features</h3>
+
+                                In this game, players must rush to complete increasingly difficult procedurally generated orders of potions as fast as possible, by processing ingredients and adding them to a cauldron.
+                                <br><br>
+                                To allow players to do this, they are able to move around a 3D space and pick up ingredients to be processed or used in a cauldron.
+                                <br><br>
+                                To generate orders, potions are created with given recipes. Difficulty and time given are then dynamically assigned based on a number of factors. If the difficulty of a given potion fits within a
+                                certain threshold, the potion is eligible to be chosen as the next order.
+                                <br><br>
+                                To make the cauldron functional, all potions are represented as volume masses in a 3D space. To make a potion, ingredients - which function as vectors, must be added to move the cauldron's position
+                                to the position within the potion's volume in 3D space. Players are given recipes corresponding to this position but are able to find their own, more efficient recipes.
+
+                                <h3>Challenges</h3>
+
+                                This was a project developed with other people, so strong communication and precise organisation were required. This was achieved through frequent meetings to discuss progress, alongside
+                                task tracking - and ultimately, was not a major problem.
+                                <br><br>
+                                The main challenge associated with this project was learning how to 3D model very quickly, and once again having to generalise. In this project, I had to design the game, produce all of the 3D assets,
+                                fully develop the potions/cauldron/orders systems and implement all game sound effects - within two weeks.
+                                <br><br>
+                                Fortunately, due to my increased experience with Unity, this project wasn't nearly as buggy initially, and was able to be produced - albeit with a reduction to the intended scope, within two weeks.
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">3D Modelling</span>
                             </div>
-                            <div class="project-video"></div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -261,16 +353,51 @@
                             <span class="info-tag">2024</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Java</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+                            <span class="info-tag">Java</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
                             This project was written in Java using <a href=https://en.wikipedia.org/wiki/Swing_(Java)>JSwing</a> for the GUI. It is a graphical application designed for querying a database.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
-                                db explorer text
+                                <h3>Information</h3>
+
+                                This project was created in around 2 weeks, as a programming exercise and extension on and a rewrite of a university project
+                                <br><br>
+                                To create this project, I had to learn to create a GUI using Java - therefore I learned the basics of how to use JSwing.
+
+                                <h3>Concept and Features</h3>
+
+                                This project revolves around the formatting and searching of a database. To do this, I implemented my own SQL-like query language from scratch, which supports the use of several mathematical operators (&lt, &lt=, ==, &gt, &gt=),
+                                comparative string operators (begins, contains, equals), alongside logical operators (AND, OR, XOR, NAND, NOR, XNOR) and brackets to connect subqueries, alongside the NOT operator to invert a subquery.
+                                Subqueries will work both ways, and can be given in the form (DATA TYPE, OPERATOR, VALUE) or (VALUE, OPERATOR, DATA TYPE), with operations working as expected for all reversed subqueries.
+                                <br><br>
+                                To format the database, the database is scanned as it is read and data types are categorised as either numeric or a string (based on whether entries can be parsed as a float),
+                                and either filterable or non-filterable (based on how many unique entries there are). This is used to generate filters and choose the correct type of operator for the input given.
+                                <br><br>
+                                The language also supports the selection of any number of valid database data types in its arguments alongside the use of the wildcard (*) to select all data types. These can be chained in any order.
+                                <br><br>
+                                Alongside this, I built a class to combine any two given databases by a common type - the demo for this project uses a modified version of the publically availible IMDB database, having combined the
+                                ratings and basic databases.
+
+                                <h3>Challenges</h3>
+
+                                One of the major challenges associated with this project was learning how to use JSwing. JSwing uses a different form of UI creation to HTML - the only way to produce a complex UI is to use
+                                nested JPanels with varying layout managers, each focused on a hyperspecific form of layout. The difficulty in this was in various elements not working as expected or described, such as
+                                elements not rendering, positioning correctly, or recording their attributes correctly, necessitating workarounds.
+                                <br><br>
+                                The other major challenges was in producing the query parser and the necessary classes to flexibly and dynamically support query parsing. Setting up these classes was relatively complex
+                                compared to many of the projects I've worked on in the past, and this is the first time I've had to consider balancing cohesion and coupling in a solution.
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">Java</span> <span class="info-tag">Software Development</span>
                             </div>
-                            <div class="project-video"></div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -288,16 +415,58 @@
                             <span class="info-tag">2024</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">AI</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
+                            <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
                             This project was written in pure Haskell. It is a CLI-based game designed to simulate games of <a href=https://en.wikipedia.org/wiki/Texas_hold_%27em>Texas Hold Em' poker</a> between both bots and humans.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
-                                poker text
+                                <h3>Information</h3>
+
+                                This project was created over around three weeks, and is a recreation of Texas Hold Em' poker, complete with support for AI bots and Jokers.
+                                <br><br>
+                                To create this project, I had to learn an entirely new programming paradigm - functional programming. Haskell is a pure functional language and thus works very differently from the procedural and 
+                                object-oriented programming languages which I typically use.
+
+                                <h3>Concept and Features</h3>
+
+                                This game is a recreation of <a href="https://en.wikipedia.org/wiki/Texas_hold_%27em" target="_blank">Texas Hold Em' poker</a>, a popular card game.
+                                <br><br>
+                                In the version which I created, any number of human players can play alongside any combination of AI strategy - of which there are 4 implemented.
+                                <ul>
+                                    <li>A random AI, which makes moves entirely based on chance without considering the game state.</li>
+                                    <li>A passive AI, an extension of the random AI with more passive tunings, which moves based on the current bet amount.</li>
+                                    <li>An aggressive AI, an extension of the random AI with more aggressive tunings, which moves based on its chip advantage.</li>
+                                    <li>A smart AI, which uses a complex function to evaluate its hand and how it should fare relatively, alongside a fuzzy logic-based decision tree to decide whether a bet is worth taking.</li>
+                                </ul>
+                                Additionally, Jokers were implemented as wildcards. Any number can be added to the deck, and will always produce the best possible result.
+
+                                <h3>Challenges</h3>
+
+                                This project necessitated learning an entierely new programming paradigm. Haskell, amongst many functional programming languages enforces a few strange practises, the most striking of which being
+                                the inherent limitation on the length of a function. The lack of a true for or while loop in the language forces a recursive solution to most problems, resulting in many functions and many
+                                function calls to accomplish what a single function can do in most other programming languages.
+                                <br><br>
+                                Other major complications included implementing an initially unplanned feature - Jokers. The addition of Jokers required a rewrite of all functions related to checking hand strength and getting a
+                                certain hand type. These rewrites typically significantly increased complexity as the logic to always get a Joker in the correct place is sometimes quite complex. One notably complex example was
+                                checking for straights - the function for this needs to prioritise making Jokers into as a high a card as possible while also producing a working straight every time, no matter where gaps in the
+                                straight may be.
+                                <br><br>
+                                Finally, the last major challenge was debugging in Haskell. Haskell is not only a pure functional programming language, but also evaluates expressions lazily, meaning that values are not calculated
+                                until they are required elsewhere in the program. This makes debugging far harder than it should be, as the debug trace will also not be evaluated unless the expression itself is, making debug
+                                behaviour unpredictable - for example, at one point in my project, I accidentally produced an infinitely recursive function and could not locate the cause. This was due to the infinite recursion
+                                occurring many lines down in a function from where the broken function was called. 
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">Haskell</span> <span class="info-tag">Software Development</span> <span class="info-tag">Functional Programming</span>
                             </div>
-                            <div class="project-video"></div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -315,26 +484,61 @@
                             <span class="info-tag">2024</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Python</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Classification</span> <span class="info-tag">AI</span>
+                            <span class="info-tag">Python</span> <span class="info-tag">Classification</span> <span class="info-tag">Machine Learning</span>
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in Python using NumPy and SciPy. It is a classifier designed to classify images of numbers in the MNIST dataset.
+                            This project was written in Python using NumPy and SciPy. It is a classifier designed to classify images of numbers in the <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
-                                classifier text
+                                <h3>Information</h3>
+
+                                This project was created over a week, and is a classifier model built to identify the number represented by an image in the <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.
+                                <br><br>
+                                Over the production of this project, I learned a large number of statistical techniques for classification, such as <a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis">LDA</a>,
+                                <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a>, <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">KL divergence</a>, and
+                                <a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">k-NN classification</a>.
+
+                                <h3>Concept and Features</h3>
+
+                                This classifier was built for the MNIST database, a popular database for training and testing machine learning and classification systems due to its relatively large size (60,000 training images,
+                                10,000 testing images) and high data quality. It uses 28x28 greyscale images of numbers 0-9. I used 5,000 of these images with my classifier to increase speed.
+                                <br><br>
+                                My classifier was built to specifically identify noisy and masked MNIST data, and so features extensive dimensionality reduction - a technique used to simplify high-dimensional data, which in my case,
+                                after extensive parameter tuning, reduced the 784 parameters (28x28) down to 62 parameters. Because fewer, more important parameters are used, the system is much more resilient to noise, as noise typically
+                                has the greatest impact on empty pixels - which are usually unused as they are usually unimportant and portray little data, causing dimensionality reduction to discard them.
+                                <br><br>
+                                With my reduced parameters, I was able to achieve 95% accuracy on noisy data and 79% accuracy on masked data, which are relatively good results considering the reduced dataset that this model was trained
+                                on.
+
+                                <h3>Challenges</h3>
+
+                                This project necessitated learning a large amount of the mathematics used in image classification and translating it as efficiently as possible to Python. To help in handling large array, vector,
+                                and matrix operations, I learned the basics of NumPy, an efficient C-based Python library. Using the broadcasting feature of NumPy arrays allows functions to be quickly
+                                applied to all elements of an array, allowing for the model to be lazy-trained and classify 1,000 testing images within 5 seconds of it being run.
+                                <br><br>
+                                Additionally, there are many possible techniques for dimensionality reduction and classification, and it is hard to know which one is perfect for a given application. Initially, LDA - a technique used
+                                to reduce the dimensions of a dataset to a few dimensions which provide the most distinction between options - was used in conjunction with PCA, however this was found to reduce performance significantly,
+                                especially on masked data, and so was removed, leaving only PCA and KL divergence for dimensionality reduction. This amongst other techniques had to be gradually tweaked, such as classifier originally using
+                                Euclidean distance instead of cosine distance, which was also found to massively reduce performance on masked data.
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">Python</span> <span class="info-tag">Classification</span> <span class="info-tag">Statistics</span>
                             </div>
+                            <div class="dynamic-separator"></div>
                             <div class="project-images">
-                                <h3>Noisy Data</h3>
+                                <h3>Examples</h3>
+                                <h4>Noisy Data</h4>
                                 <img src="Content/noisy.png" alt="Noisy number samples from the MNIST dataset">
-                                <h3>Masked Data</h3>
+                                <h4>Masked Data</h4>
                                 <img src="Content/masked.png" alt="Masked number samples from the MNIST dataset">
                             </div>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-article" data-video="bYqru-7I91M">
+                <article class="project-article" data-video="QEAY7h3PNQs">
                     <div class="project-parallax graphics">
                         <h3>
                             Graphical Project
@@ -347,7 +551,7 @@
                             <span class="info-tag">2025</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Java</span> <span class="info-tag">Object-oriented</span> <span class="info-tag">Graphical</span> <span class="info-tag">Shaders</span><hr class="tagbreak">
+                            <span class="info-tag">Java</span> <span class="info-tag">Graphical</span> <span class="info-tag">Shaders</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
                             This project was written in Java using the <a href=https://jogamp.org/jogl/www>JOGL library</a>, a library which aims to import <a href=https://www.opengl.org>OpenGL</a> functionality to Java. It is a basic animated scene
@@ -355,13 +559,198 @@
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
-                                poker text
+                                <h3>Information</h3>
+
+                                This is a graphical project built using the <a href="https://jogamp.org/jogl/www">JOGL library</a> for Java, alongside <a href="https://en.wikipedia.org/wiki/Swing_(Java)">JSwing</a> to handle UI elements. This was built 
+                                over the course of 2 weeks as coursework for a university module.<br><br>
+                                This project is unique in that this was my introduction to GPU shaders.
+
+                                <h3>Concept and Features</h3>
+
+                                This project is an animated scene built using low-level graphics concepts. This consists of an animated bee, statues
+                                (which feature proximity detection), and a backdrop, made from <a
+                                    href="https://en.wikipedia.org/wiki/2.5D#Billboarding">billboarding</a> trees and a sun.
+                                Each statue in the scene has a different affect on the bee, as shown in the demo - the wooden statue makes the bee flip
+                                over, the stone statue makes the bee circle around it, and the metal statue increases the flow of time.
+                                When a bee is in proximity of a statue, its face will change to reflect how long it has been near the bee.<br>
+                                <br>
+                                Objects in the scene and their animations (which are mostly determined by simple sine wave functions) are handled using
+                                transforms applied to nodes in a <a href="https://en.wikipedia.org/wiki/Scene_graph">scene graph</a>, and rendered by
+                                the GPU using <a href="https://en.wikipedia.org/wiki/Shader#Fragment_shaders">vertex and fragment shaders</a>. The
+                                fragment shader supports <a href="https://en.wikipedia.org/wiki/Shading#Point_lighting">multiple lights</a>, multiple
+                                types of light
+                                (pictured are directional and spotlights, but point lights are also supported), and has partial support for
+                                transparency. It uses the <a href="https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model">Blinn-Phong
+                                    reflection model</a> to shade objects and supports light attenuation for
+                                point lights and spotlights.
+
+                                <h3>Challenges</h3>
+
+                                This is not my first graphical project, but is the first time I have worked in low-level graphics programming. The primary challenge of this project was expectedly learning shader code - shaders are highly parallel and require 
+                                a different methodology behind their composition, as data is not directly transferrable between shader iterations. Instead, data is either provided by the previous shader (vertex shader to frag shader or frag shader to frag shader typically), or provided by the CPU, passed in as a uniform. 
+                                Both of these methods work very differently to how typical CPU code handles data, and requires learning and planning to operate effectively.<br>
+                                <br>
+                                Alongside this, all of my modelling in this project was done without the use of external tools like Blender, as I had used before in my <a onclick="scrollToProject(1)">Alchemy Game</a>. This meant all models I produced had to be done with the 
+                                use of a scene graph, using nodes to produce primitive shapes and the transforms which separated, scaled, and animated them.
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">Java</span> <span class="info-tag">Shaders</span> <span class="info-tag">Graphics Programming</span>
                             </div>
-                            <div class="project-video"></div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
                         </div>
                     </div>
                 </article>
             </div>
+            </div>
+            <noscript>
+            <span>Alternate pages have been provided for viewing projects without JavaScript, but this is not the intended experience and full views are not supported for projects past Classifier.</span>
+            <br><br>
+            <div class="project-container">
+                <a href="./projects/spacegolf.html" class="alt-a">
+                    <article class="project-article">
+                        <div class="project-parallax spacegolf">
+                            <h3>
+                                Space Golf
+                            </h3>
+                        </div>
+
+                        <div class="info">
+                            <div class="content-summary">
+                                <h3 class="nopad">Year</h3><hr class="tagbreak">
+                                <span class="info-tag">2023</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                                <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                                This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 2D physics-based game about golf in space.
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="projects/alchemygame.html" class="alt-a">
+                    <article class="project-article">
+                        <div class="project-parallax alchemygame">
+                            <h3>
+                                Alchemy Game
+                            </h3>
+                        </div>
+
+                        <div class="info">
+                            <div class="content-summary">
+                                <h3 class="nopad">Year</h3><hr class="tagbreak">
+                                <span class="info-tag">2024</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                                <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                                This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine) target="_blank">Unity</a> game engine. It is a 3D game about time management and cooking.
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="./projects/dbexplorer.html" class="alt-a">
+                    <article class="project-article">
+                        <div class="project-parallax dbexplorer">
+                            <h3 class="inverse-colour">
+                                Database Explorer
+                            </h3>
+                        </div>
+
+                        <div class="info">
+                            <div class="content-summary">
+                                <h3 class="nopad">Year</h3><hr class="tagbreak">
+                                <span class="info-tag">2024</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                                <span class="info-tag">Java</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                                This project was written in Java using <a href=https://en.wikipedia.org/wiki/Swing_(Java) target="_blank">JSwing</a> for the GUI. It is a graphical application designed for querying a database.
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="./projects/poker.html" class="alt-a">
+                    <article class="project-article">
+                        <div class="project-parallax poker">
+                            <h3>
+                                Poker
+                            </h3>
+                        </div>
+
+                        <div class="info">
+                            <div class="content-summary">
+                                <h3 class="nopad">Year</h3><hr class="tagbreak">
+                                <span class="info-tag">2024</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                                <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                                This project was written in pure Haskell. It is a CLI-based game designed to simulate games of <a href=https://en.wikipedia.org/wiki/Texas_hold_%27em target="_blank">Texas Hold Em' poker</a> between both bots and humans.
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="./projects/classifier.html" class="alt-a">
+                    <article class="project-article">
+                        <div class="project-parallax classifier">
+                            <h3>
+                                Classifier
+                            </h3>
+                        </div>
+
+                        <div class="info">
+                            <div class="content-summary">
+                                <h3 class="nopad">Year</h3><hr class="tagbreak">
+                                <span class="info-tag">2024</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                                <span class="info-tag">Python</span> <span class="info-tag">Classification</span>
+
+                                <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                                This project was written in Python using NumPy and SciPy. It is a classifier designed to classify images of numbers in the MNIST dataset.
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a class="alt-a">
+                    <article class="project-article">
+                        <div class="project-parallax graphics">
+                            <h3>
+                                Graphical Project
+                            </h3>
+                        </div>
+
+                        <div class="info">
+                            <div class="content-summary">
+                                <h3 class="nopad">Year</h3><hr class="tagbreak">
+                                <span class="info-tag">2025</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                                <span class="info-tag">Java</span> <span class="info-tag">Graphical</span> <span class="info-tag">Shaders</span><hr class="tagbreak">
+
+                                <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                                This project was written in Java using the <a href=https://jogamp.org/jogl/www>JOGL library</a>, a library which aims to import <a href=https://www.opengl.org>OpenGL</a> functionality to Java. It is a basic animated scene
+                                which uses low-level graphical techniques and shaders.
+                            </div>
+                        </div>
+                    </article>
+                </a>
+            </div>
+            </noscript>
             <br>
         </section>
     </main>
