@@ -8,7 +8,6 @@ let height = canvas.height;
 let canvasObject = canvas.getBoundingClientRect();
 let last = performance.now();
 let mouseCoords = [0, 0];
-const scalingFactor = 2;
 
 canvas.addEventListener("mousemove", (e) => {
   mouseCoords = [e.clientX, e.clientY];
@@ -345,6 +344,7 @@ function renderLoop() {
 const { vertices: sphereVertices, faces: sphereFaces} = generateSphere(6, 8);
 const camLight = {direction: Vec3.normalise([1, -0.5, 0.3]), brightness: 0.9};
 const ambient = 0.05;
+const scalingFactor = 3;
 
 const lights = [camLight];
 
