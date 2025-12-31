@@ -10,7 +10,7 @@ let last = performance.now();
 let mouseCoords = [0, 0];
 
 canvas.addEventListener("mousemove", (e) => {
-  mouseCoords = [e.clientX, e.clientY];
+  mouseCoords = [e.offsetX, e.offsetY];
 });
 
 canvas.addEventListener("mouseleave", () => {
@@ -20,8 +20,8 @@ canvas.addEventListener("mouseleave", () => {
 function syncResolution() {
   canvasObject = canvas.getBoundingClientRect();
   
-  canvas.width = canvasObject.width / scalingFactor;
-  canvas.height = canvasObject.height / scalingFactor;
+  canvas.width = canvasObject.width / pixelation;
+  canvas.height = canvasObject.height / pixelation;
   
   width = canvas.width;
   height = canvas.height;
@@ -106,14 +106,11 @@ function toScreenSpace(point) {
     return [screenX, screenY];
 }
 
-function perspective(point) {
-  const fov = 60;
-  const fovMult = Math.tan(fov * Math.PI / 360);
-
-  const x = point[0] / (point[2] * fovMult);
-  const y = point[1] / (point[2] * fovMult);
+function perspective([x, y, z]) {
+  const px = x / z;
+  const py = y / z;
   
-  return [x, y, point[2]];
+  return [px, py];
 }
 
 // could also use full rotation matrix
@@ -204,17 +201,17 @@ function drawShape(points, filled=false, colour="rgb(0, 0, 0)") {
 }
 
 function renderAnimatedSphere(scale=1) {
-  const frequency = 0.25;
-  const moveFrequency = 0.2;
+  const frequency = 0.25 * rotSpeedMult;
+  const moveFrequency = 0.2 * movSpeedMult;
 
   const now = performance.now() / 1000;
   const timeRads = now * 2 * Math.PI;
   const rotation = timeRads * frequency;
-  const offsetX = Math.sin(timeRads * moveFrequency) * 0.2;
-  const offsetY = Math.cos(timeRads * moveFrequency) * 0.2;
-  const offsetZ = 3 + Math.sin(timeRads * moveFrequency / 2) * 0.25;
+  const offsetX = Math.sin(timeRads * moveFrequency) * 0.2 * movDistMult;
+  const offsetY = Math.cos(timeRads * moveFrequency) * 0.2 * movDistMult;
+  const offsetZ = camDistOffset + Math.sin(timeRads * moveFrequency / 2) * 0.25;
 
-  renderShape(sphereVertices, sphereFaces, scale, [rotation / 3, rotation, -rotation / 2], [offsetX, offsetY, offsetZ]);
+  renderShape(sphereData.vertices, sphereData.faces, scale, [rotation / 3, rotation, -rotation / 2], [offsetX, offsetY, offsetZ]);
 }
 
 function getCentroid(points) {
@@ -307,7 +304,7 @@ function renderShape(vertices, faces, scale=1, rotation=[0, 0, 0], offset=[0, 0,
 
   const colourFunctions = [
     getBrightness,
-    (colour) => quantise(colour, 16),
+    (colour) => quantise(colour, quantisationLevel),
     (colour) => colour * 255,
     (colour) => [colour, colour, colour],
     toRGBString,
@@ -322,11 +319,19 @@ function renderShape(vertices, faces, scale=1, rotation=[0, 0, 0], offset=[0, 0,
   for (let i = 0; i < faceData.faces.length; i++) {
     const face = faceData.faces[i];
     const normal = faceData.normals[i];
+    const objPoints = face.map(index => objectVerts[index]);
 
-    const colour = pipeline(normal, colourFunctions);
+    // near plane check - if depth of current object is behind camera, do not render it
+    if (objPoints.some(vert => vert[2] < nearPlane)) continue;
+
     const facePoints = face.map(index => screenVerts[index]);
-    const fullFaceDrawn = isWithinDistance(facePoints, canvasSpaceMouse, detectionDistance);
-    drawShape(facePoints, fullFaceDrawn, colour);
+    const colour = pipeline(normal, colourFunctions);
+    if (doHover) {
+      const fullFaceDrawn = isWithinDistance(facePoints, canvasSpaceMouse, detectionDistance);
+      drawShape(facePoints, fullFaceDrawn, colour);
+    } else {
+      drawShape(facePoints, true, colour);
+    }
   }
 }
 
@@ -337,16 +342,49 @@ function renderLoop() {
 
   ctx.clearRect(0, 0, width, height);
 
-  renderAnimatedSphere();
+  renderAnimatedSphere(sphereScale);
   requestAnimationFrame(renderLoop);
 }
 
-const { vertices: sphereVertices, faces: sphereFaces} = generateSphere(6, 8);
-const camLight = {direction: Vec3.normalise([1, -0.5, 0.3]), brightness: 0.9};
-const ambient = 0.05;
-const scalingFactor = 3;
+const nearPlane = 0.04; 
+let sphereData = generateSphere(6, 8);
+let pixelation = 3;
+let quantisationLevel = 2 ** 4;
+let rotSpeedMult = 1;
+let movDistMult = 1;
+let movSpeedMult = 1;
+let sphereScale = 1.7;
+let doHover = true;
+let camDistOffset = 3;
+let lightXOffset = 1;
 
-const lights = [camLight];
+const moveSpeedSlider = document.getElementById("move-speed");
+const moveRangeSlider = document.getElementById("move-distance");
+const rotSpeedSlider = document.getElementById("rotation-speed");
+const sphereSizeSlider = document.getElementById("sphere-size");
+const camDistSlider = document.getElementById("cam-distance");
+
+const hoverToggle = document.getElementById("toggle-sphere-hover");
+const lightPosSlider = document.getElementById("light-position");
+const quantLevelSlider = document.getElementById("quantisation-level");
+const pixelationSlider = document.getElementById("pixelation-level");
+const sphereDetailSlider = document.getElementById("sphere-detail");
+
+moveSpeedSlider.oninput = () => movSpeedMult = moveSpeedSlider.value / 10;
+moveRangeSlider.oninput = () => movDistMult = moveRangeSlider.value / 10;
+rotSpeedSlider.oninput = () => rotSpeedMult = rotSpeedSlider.value / 10;
+sphereSizeSlider.oninput = () => sphereScale = sphereSizeSlider.value / 10;
+camDistSlider.oninput = () => camDistOffset = camDistSlider.value / 10;
+
+hoverToggle.oninput = () => doHover = !doHover;
+lightPosSlider.oninput = () => {lightXOffset = lightPosSlider.value / 10; lights = [{direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9}]};
+quantLevelSlider.oninput = () => quantisationLevel = 2 ** (8 - quantLevelSlider.value);
+pixelationSlider.oninput = () => {pixelation = pixelationSlider.value; syncResolution();}
+sphereDetailSlider.oninput = () => sphereData = generateSphere(parseInt(sphereDetailSlider.value), parseInt(sphereDetailSlider.value) + 2);
+
+const camLight = {direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9};
+const ambient = 0.05;
+let lights = [camLight];
 
 syncResolution();
 requestAnimationFrame(renderLoop);

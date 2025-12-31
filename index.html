@@ -20,7 +20,6 @@
         </noscript>
 
         <div class="header-container" id="header-box">
-            <!-- basic 3D render WIP -->
             <canvas id="draw"></canvas>
             <div class="header-text">
                 <div class="header-title">
@@ -30,6 +29,88 @@
                         University of Sheffield
                     </h2>
                 </div>
+            </div>
+            <!-- CONTROLS:
+             Sphere:
+
+             Toggle hover effect
+             Slider move speed
+             Slider move range
+             Slider size
+             Slider distance
+
+             Graphics:
+
+             Slider light position
+             Slider quantisation
+             Slider pixelation
+             Slider sphere detail
+             -->
+            <div class="controls">
+                <h2 class="nopad">Controls</h2>
+                <div>
+                <div class="sphere">
+                    <h3 class="nopad">Sphere</h3>
+                    <div class="sphere-controls">
+                        <div class="move-speed">
+                            <h4>Move Frequency</h4>
+                            <input class="range-slider" id="move-speed" type="range" min="0" max="50" value="10">
+                        </div>
+
+                        <div class="move-range">
+                            <h4>Move Distance</h4>
+                            <input class="range-slider" id="move-distance" type="range" min="0" max="50" value="10">
+                        </div>
+
+                        <div class="rotation-speed">
+                            <h4>Rotation Speed</h4>
+                            <input class="range-slider" id="rotation-speed" type="range" min="0" max="50" value="10">
+                        </div>
+
+                        <div class="sphere-size">
+                            <h4>Sphere Size</h4>
+                            <input class="range-slider" id="sphere-size" type="range" min="1" max="50" value="17">
+                        </div>
+
+                        <div class="sphere-distance">
+                            <h4>Camera Distance</h4>
+                            <input class="range-slider" id="cam-distance" type="range" min="-20" max="100" value="30">
+                        </div>
+                    </div>
+                </div>
+                <div class="graphics">
+                    <h3 class="nopad">Graphics</h3>
+                    <div class="graphics-controls">
+                        <div class="hover-toggle">
+                            <h4>Toggle Hover</h4>
+                            <label class="switch">
+                                <input type="checkbox" id="toggle-sphere-hover" checked="checked">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="light-x">
+                            <h4>Light Position</h4>
+                            <input class="range-slider" id="light-position" type="range" min="-20" max="20" value="10">
+                        </div>
+
+                        <div class="quantisation-levels">
+                            <h4>Quantisation</h4>
+                            <input class="range-slider" id="quantisation-level" type="range" min="0" max="8" value="4">
+                        </div>
+
+                        <div class="pixelation">
+                            <h4>Pixelation</h4>
+                            <input class="range-slider" id="pixelation-level" type="range" min="1" max="10" value="3">
+                        </div>
+
+                        <div class="sphere-detail">
+                            <h4>Sphere Detail</h4>
+                            <input class="range-slider" id="sphere-detail" type="range" min="2" max="16" value="6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap">3D renderer produced using ~400 lines of JavaScript, viewable through sources in JS/render.js. Try hovering!</div>
             </div>
         </div>
     </header>
@@ -47,7 +128,7 @@
         <section class="text-container about-box">
             <div>
             <h2 class="nopad">About Me</h2><br><br>
-            I'm Jake Sutcliffe, a 20-year-old student with a passion for Computer Science, Software Engineering and Statistics.
+            I'm Jake Sutcliffe, a student with a passion for Computer Science, Software Engineering and Statistics.
             <br><br>
             I've been producing moderately-sized programming projects for around 7 years and been programming for much longer. Some projects I've built are small such as graphical implementations of Battleships,
                 Naughts and Crosses, and Minesweeper using Pygame in Python, while some are far larger and more complex - such as the projects prominently displayed below.
@@ -539,7 +620,7 @@
                 </article>
 
                 <article class="project-article" data-video="QEAY7h3PNQs">
-                    <div class="project-parallax graphics">
+                    <div class="project-parallax graphics-project">
                         <h3>
                             Graphical Project
                         </h3>
@@ -728,7 +809,7 @@
 
                 <a class="alt-a">
                     <article class="project-article">
-                        <div class="project-parallax graphics">
+                        <div class="project-parallax graphics-project">
                             <h3>
                                 Graphical Project
                             </h3>
