@@ -207,9 +207,10 @@ function renderAnimatedSphere(scale=1) {
   const now = performance.now() / 1000;
   const timeRads = now * 2 * Math.PI;
   const rotation = timeRads * frequency;
+  
   const offsetX = Math.sin(timeRads * moveFrequency) * 0.2 * movDistMult;
   const offsetY = Math.cos(timeRads * moveFrequency) * 0.2 * movDistMult;
-  const offsetZ = camDistOffset + Math.sin(timeRads * moveFrequency / 2) * 0.25;
+  const offsetZ = camDistOffset + Math.sin(timeRads * moveFrequency / 2) * 0.25 * movDistMult;
 
   renderShape(sphereData.vertices, sphereData.faces, scale, [rotation / 3, rotation, -rotation / 2], [offsetX, offsetY, offsetZ]);
 }
@@ -355,8 +356,8 @@ let movDistMult = 1;
 let movSpeedMult = 1;
 let sphereScale = 1.7;
 let doHover = true;
-let camDistOffset = 3;
-let lightXOffset = 1;
+let camDistOffset = 3.5;
+let lightXOffset = -1;
 
 const moveSpeedSlider = document.getElementById("move-speed");
 const moveRangeSlider = document.getElementById("move-distance");
@@ -370,6 +371,21 @@ const quantLevelSlider = document.getElementById("quantisation-level");
 const pixelationSlider = document.getElementById("pixelation-level");
 const sphereDetailSlider = document.getElementById("sphere-detail");
 
+const controlsToggle = document.getElementById("controls-toggle");
+const controlsDisplay = document.getElementById("controls-display");
+const controlsInfo = document.getElementById("controls-info");
+
+setControlsVisible = (visible) => {
+  if (visible) {
+    controlsDisplay.style.display = "flex";
+    controlsInfo.style.display = "block";
+  }
+  else {
+    controlsDisplay.style.display = "none";
+    controlsInfo.style.display = "none";
+  }
+};
+
 moveSpeedSlider.oninput = () => movSpeedMult = moveSpeedSlider.value / 10;
 moveRangeSlider.oninput = () => movDistMult = moveRangeSlider.value / 10;
 rotSpeedSlider.oninput = () => rotSpeedMult = rotSpeedSlider.value / 10;
@@ -377,10 +393,12 @@ sphereSizeSlider.oninput = () => sphereScale = sphereSizeSlider.value / 10;
 camDistSlider.oninput = () => camDistOffset = camDistSlider.value / 10;
 
 hoverToggle.oninput = () => doHover = !doHover;
-lightPosSlider.oninput = () => {lightXOffset = lightPosSlider.value / 10; lights = [{direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9}]};
+lightPosSlider.oninput = () => {lightXOffset = lightPosSlider.value / -10; lights = [{direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9}]};
 quantLevelSlider.oninput = () => quantisationLevel = 2 ** (8 - quantLevelSlider.value);
 pixelationSlider.oninput = () => {pixelation = pixelationSlider.value; syncResolution();}
 sphereDetailSlider.oninput = () => sphereData = generateSphere(parseInt(sphereDetailSlider.value), parseInt(sphereDetailSlider.value) + 2);
+
+controlsToggle.onclick = () => setControlsVisible(controlsDisplay.style.display == "none");
 
 const camLight = {direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9};
 const ambient = 0.05;

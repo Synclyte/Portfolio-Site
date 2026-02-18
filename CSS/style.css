@@ -139,6 +139,22 @@ canvas {
     pointer-events: all;
 }
 
+#controls-toggle {
+    pointer-events: all;
+}
+
+#controls-toggle:hover {
+    cursor: pointer;
+}
+
+#controls-display {
+    display: none;
+}
+
+#controls-info {
+    display: none;
+}
+
 .controls > div {
     display: flex;
     flex-direction: row;
@@ -1134,5 +1150,9 @@ iframe {
 
     .img-grid img {
         max-width: 120px;
+    }
+
+    .img-grid {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
