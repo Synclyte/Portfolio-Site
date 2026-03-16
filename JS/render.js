@@ -406,6 +406,13 @@ let setControlsVisible = (visible) => {
   }
 };
 
+window.addEventListener("resize", () => {
+  if (controlsVisible) {
+    controlsContent.style.height = "auto";
+    setControlsVisible(true);
+  }
+})
+
 moveSpeedSlider.oninput = () => {movSpeedMult = moveSpeedSlider.value / 10; moveSpeedLabel.innerText = movSpeedMult + "×"}
 moveRangeSlider.oninput = () => {movDistMult = moveRangeSlider.value / 10; moveRangeLabel.innerText = movDistMult + "×"}
 rotSpeedSlider.oninput = () => {rotSpeedMult = rotSpeedSlider.value / 10; rotSpeedLabel.innerText = rotSpeedMult + "×"}

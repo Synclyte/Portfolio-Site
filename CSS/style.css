@@ -1,7 +1,7 @@
 :root {
     --title-background-colour: rgba(8, 9, 9, 0.8);
     --title-toggle-colour: rgba(6, 6, 6, 0.8);
-    --canvas-background-colour: #186baa;
+    --canvas-background-colour: #227cc0;
     --background-colour: #141515;
     --container-colour: #101111;
     --alt-container-colour: #161717;
@@ -59,7 +59,7 @@ body {
 }
 
 main {
-    margin: 0 8% 0;
+    margin: 0 14% 2%;
 }
 
 h1 {
@@ -95,6 +95,8 @@ h4 {
     -webkit-box-shadow: 0px 0px 50px var(--box-shadow-size) var(--box-shadow-colour);
     -moz-box-shadow: 0px 0px 50px var(--box-shadow-size) var(--box-shadow-colour);
     box-shadow: 0px 0px 50px var(--box-shadow-size) var(--box-shadow-colour);
+
+    background: -webkit-radial-gradient(rgba(50, 50, 50, 0) 55%, rgba(37, 37, 37, 0.3) 90%, rgba(37, 37, 37, 0.3));
 }
 
 .header-container > canvas,
@@ -119,7 +121,7 @@ canvas {
 .header-text {
     border-radius: 0 15px 15px 0;
     background-color: var(--title-background-colour);
-    padding: 2%;
+    padding: 2% 4% 2% 10%;
     width: max-content;
     margin: auto 0 auto;
     z-index: 10;
@@ -130,7 +132,7 @@ canvas {
     z-index: 0;
     border-radius: 15px 15px 0 0;
     background-color: var(--title-background-colour);
-    width: max(340px, 25%);
+    width: max-content;
     height: fit-content;
     margin-right: 30px;
     margin-left: auto;
@@ -155,7 +157,6 @@ canvas {
 
 #controls-toggle:hover {
     cursor: pointer;
-    background-color: var(--title-toggle-colour);
 }
 
 .controls-content {
@@ -166,15 +167,11 @@ canvas {
 
 #controls-display {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     gap: 15px;
     justify-content: space-between;
     padding-bottom: 15px;
-}
-
-.labelled-input > label {
-    margin: auto;
 }
 
 #controls-display h3 {
@@ -212,6 +209,12 @@ canvas {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.labelled-input label {
+    min-width: 5ch;
+    display: inline-block;
+    text-align: right;
 }
 
 .controls .switch {
@@ -1083,7 +1086,7 @@ iframe {
 
 @media (max-width: 1500px) {
     .header-text h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     .header-text h2 {
@@ -1101,6 +1104,14 @@ iframe {
     .range-slider::-webkit-slider-thumb, .range-slider::-moz-range-thumb {
         height: 14px;
         width: 14px;
+    }
+
+    #controls-display {
+        flex-direction: column;
+    }
+
+    main {
+        margin: 0 10% 2%;
     }
 }
 
@@ -1130,7 +1141,7 @@ iframe {
         border-radius: 0 0 15px 15px;
         width: 50%;
         text-align: center;
-        padding: 0 1% 1%;
+        padding: 3% 3% 3%;
     }
 
     .content-expanded {
@@ -1187,5 +1198,9 @@ iframe {
 
     .img-grid {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    main {
+        margin: 0 8% 2%;
     }
 }
