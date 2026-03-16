@@ -1,5 +1,6 @@
 :root {
-    --title-background-colour: rgba(8, 9, 9, 0.4);
+    --title-background-colour: rgba(8, 9, 9, 0.8);
+    --title-toggle-colour: rgba(6, 6, 6, 0.8);
     --canvas-background-colour: #186baa;
     --background-colour: #141515;
     --container-colour: #101111;
@@ -24,7 +25,8 @@
 }
 
 :root:has(.light-switch input:checked) {
-    --title-background-colour: rgba(155, 155, 155, 0.4);
+    --title-background-colour: rgba(155, 155, 155, 0.8);
+    --title-toggle-colour: rgba(165, 165, 165, 0.8);
     --canvas-background-colour: #227cc0;
     --background-colour: #d6d6d6;
     --container-colour: #bbbbbb;
@@ -87,7 +89,7 @@ h4 {
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     display: grid;
     grid-template-areas: overlay;
     -webkit-box-shadow: 0px 0px 50px var(--box-shadow-size) var(--box-shadow-colour);
@@ -101,61 +103,91 @@ h4 {
     grid-area: overlay;
 }
 
+.canvas-container {
+    pointer-events: none;
+}
+
 canvas {
     background-color: var(--canvas-background-colour);
     width: 100vw;
-    height: 80vh;
-    z-index: 0;
+    height: 100vh;
+    z-index: -2;
     image-rendering: pixelated;
+    pointer-events: all;
 }
 
 .header-text {
-    border-radius: var(--general-border-radius);
+    border-radius: 0 15px 15px 0;
     background-color: var(--title-background-colour);
     padding: 2%;
-    width: fit-content;
-    margin: auto 4vw auto;
+    width: max-content;
+    margin: auto 0 auto;
     z-index: 10;
     pointer-events: none;
 }
 
 .controls {
-    z-index: 9;
-    border-radius: var(--general-border-radius);
+    z-index: 0;
+    border-radius: 15px 15px 0 0;
     background-color: var(--title-background-colour);
-    padding: 0 1% 0.5%;
-    width: fit-content;
+    width: max(340px, 25%);
     height: fit-content;
     margin-right: 30px;
-    margin-bottom: 15px;
     margin-left: auto;
     margin-top: auto;
     display: flex;
     flex-direction: column;
+    grid-template-columns: 1fr 1fr;
     pointer-events: none;
 }
 
-.controls input {
+.controls h2 {
+    margin: auto;
+}
+
+.controls input, #controls-toggle {
     pointer-events: all;
 }
 
 #controls-toggle {
-    pointer-events: all;
+    border-radius: 15px 15px 0 0;
 }
 
 #controls-toggle:hover {
     cursor: pointer;
+    background-color: var(--title-toggle-colour);
+}
+
+.controls-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.2s ease;
 }
 
 #controls-display {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;
+    padding-bottom: 15px;
 }
 
-#controls-info {
-    display: none;
+.labelled-input > label {
+    margin: auto;
+}
+
+#controls-display h3 {
+    margin: auto;
+    text-align: center;
+}
+
+#controls-display h4 {
+    font-weight: 400;
 }
 
 .controls > div {
+    padding: 0 10px;
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -177,8 +209,9 @@ canvas {
 
 .sphere > div > div, .graphics > div > div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 
 .controls .switch {
@@ -203,7 +236,7 @@ canvas {
     appearance: none;
     outline: none;
     border-radius: calc(var(--slider-height) / 2);
-    height: calc(var(--slider-height) - 4px);
+    height: 12px;
     background: var(--switch-background-colour);
     transition: 0.2s;
 }
@@ -214,16 +247,16 @@ canvas {
 
 .range-slider::-webkit-slider-thumb {
     appearance: none;
-    height: calc(var(--slider-height) - 2px);
-    width: calc(var(--slider-height) - 2px);
+    height: 14px;
+    width: 14px;
     cursor: pointer;
     border-radius: calc(var(--slider-height) / 2);
     background-color: var(--switch-handle-colour);
 }
 
 .range-slider::-moz-range-thumb {
-    height: var(--slider-height);
-    width: var(--slider-height);
+    height: 14px;
+    width: 14px;
     cursor: pointer;
     border-radius: calc(var(--slider-height) / 2);
     background-color: var(--switch-handle-colour);
@@ -1049,10 +1082,6 @@ iframe {
 }
 
 @media (max-width: 1500px) {
-    .header-text {
-        margin: auto 2vw auto;
-    }
-
     .header-text h1 {
         font-size: 2em;
     }
@@ -1089,7 +1118,7 @@ iframe {
     }
 
     .controls {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     main {
@@ -1097,7 +1126,11 @@ iframe {
     }
 
     .header-text {
-        margin: 6% auto auto auto;
+        margin: 0 auto auto auto;
+        border-radius: 0 0 15px 15px;
+        width: 50%;
+        text-align: center;
+        padding: 0 1% 1%;
     }
 
     .content-expanded {

@@ -46,42 +46,59 @@
              Slider pixelation
              Slider sphere detail
              -->
+        
             <div class="controls">
                 <div id="controls-toggle">
-                    <h2 class="nopad">Toggle Controls</h2>
+                    <h2 class="controls-inactive nopad">Toggle Controls</h2>
                 </div>
+                <div id="controls-content" class="controls-content">
                 <div id="controls-display">
                 <div class="sphere">
-                    <h3 class="nopad">Sphere</h3>
+                    <h3>Sphere</h3>
                     <div class="sphere-controls">
-                        <div class="move-speed">
+                        <div class="input-pair">
                             <h4>Move Frequency</h4>
-                            <input class="range-slider" id="move-speed" type="range" min="0" max="50" value="10">
+                            <div class="labelled-input">
+                                <label for="move-speed" id="move-speed-label">1</label>
+                                <input class="range-slider" id="move-speed" type="range" min="0" max="50" value="10">
+                            </div>
                         </div>
 
-                        <div class="move-range">
+                        <div class="input-pair">
                             <h4>Move Distance</h4>
-                            <input class="range-slider" id="move-distance" type="range" min="0" max="50" value="10">
+                            <div class="labelled-input">
+                                <label for="move-distance" id="move-distance-label"></label>
+                                <input class="range-slider" id="move-distance" type="range" min="0" max="50" value="10">
+                            </div>
                         </div>
 
-                        <div class="rotation-speed">
+                        <div class="input-pair">
                             <h4>Rotation Speed</h4>
-                            <input class="range-slider" id="rotation-speed" type="range" min="0" max="50" value="10">
+                            <div class="labelled-input">
+                                <label for="rotation-speed" id="rotation-speed-label"></label>
+                                <input class="range-slider" id="rotation-speed" type="range" min="0" max="50" value="10">
+                            </div>
                         </div>
 
-                        <div class="sphere-size">
+                        <div class="input-pair">
                             <h4>Sphere Size</h4>
-                            <input class="range-slider" id="sphere-size" type="range" min="1" max="50" value="17">
+                            <div class="labelled-input">
+                                <label for="sphere-size" id="sphere-size-label"></label>
+                                <input class="range-slider" id="sphere-size" type="range" min="1" max="50" value="17">
+                            </div>
                         </div>
 
-                        <div class="sphere-distance">
+                        <div class="input-pair">
                             <h4>Camera Distance</h4>
-                            <input class="range-slider" id="cam-distance" type="range" min="-20" max="100" value="30">
+                            <div class="labelled-input">
+                                <label for="cam-distance" id="cam-distance-label"></label>
+                                <input class="range-slider" id="cam-distance" type="range" min="-20" max="100" value="30">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="graphics">
-                    <h3 class="nopad">Graphics</h3>
+                    <h3>Graphics</h3>
                     <div class="graphics-controls">
                         <div class="hover-toggle">
                             <h4>Toggle Hover</h4>
@@ -90,29 +107,41 @@
                                 <span class="slider round"></span>
                             </label>
                         </div>
-                        <div class="light-x">
+                        <div class="input-pair">
                             <h4>Light Position</h4>
-                            <input class="range-slider" id="light-position" type="range" min="-20" max="20" value="10">
+                            <div class="labelled-input">
+                                <label for="light-position" id="light-position-label"></label>
+                                <input class="range-slider" id="light-position" type="range" min="-20" max="20" value="10">
+                            </div>
                         </div>
 
-                        <div class="quantisation-levels">
+                        <div class="input-pair">
                             <h4>Quantisation</h4>
-                            <input class="range-slider" id="quantisation-level" type="range" min="0" max="8" value="4">
+                            <div class="labelled-input">
+                                <label for="quantisation-level" id="quantisation-level-label"></label>
+                                <input class="range-slider" id="quantisation-level" type="range" min="0" max="8" value="5">
+                            </div>
                         </div>
 
-                        <div class="pixelation">
-                            <h4>Pixelation</h4>
-                            <input class="range-slider" id="pixelation-level" type="range" min="1" max="10" value="3">
+                        <div class="input-pair">
+                            <h4>Resolution</h4>
+                            <div class="labelled-input">
+                                <label for="pixelation-level" id="pixelation-level-label"></label>
+                                <input class="range-slider" id="pixelation-level" type="range" min="1" max="10" value="6">
+                            </div>
                         </div>
 
-                        <div class="sphere-detail">
+                        <div class="input-pair">
                             <h4>Sphere Detail</h4>
-                            <input class="range-slider" id="sphere-detail" type="range" min="2" max="16" value="6">
+                            <div class="labelled-input">
+                                <label for="sphere-detail" id="sphere-detail-label"></label>
+                                <input class="range-slider" id="sphere-detail" type="range" min="2" max="16" value="6">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="controls-info" class="wrap">3D renderer produced using ~400 lines of JavaScript, viewable through sources in JS/render.js. Try hovering!</div>
+            </div>
             </div>
         </div>
     </header>
@@ -133,7 +162,7 @@
             I'm Jake Sutcliffe, a student with a passion for Computer Science, Software Engineering and Statistics.
             <br><br>
             I've been producing moderately-sized programming projects for around 7 years and been programming for much longer. Some projects I've built are small such as graphical implementations of Battleships,
-                Naughts and Crosses, and Minesweeper using Pygame in Python, while some are far larger and more complex - such as the projects prominently displayed below.
+                Noughts and Crosses, and Minesweeper using Pygame in Python, while some are far larger and more complex - such as the projects prominently displayed below.
             <br><br>
             Currently, I'm a third year at the University of Sheffield studying an undergraduate degree in Computer Science.
 

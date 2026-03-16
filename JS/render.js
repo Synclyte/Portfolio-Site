@@ -7,13 +7,13 @@ let width = canvas.width;
 let height = canvas.height;
 let canvasObject = canvas.getBoundingClientRect();
 let last = performance.now();
-let mouseCoords = [0, 0];
+let mouseCoords = [1e9, 1e9];
 
-canvas.addEventListener("mousemove", (e) => {
-  mouseCoords = [e.offsetX, e.offsetY];
+window.addEventListener("mousemove", (e) => {
+  mouseCoords = [e.clientX, e.clientY];
 });
 
-canvas.addEventListener("mouseleave", () => {
+window.addEventListener("mouseleave", () => {
   mouseCoords = [1e9, 1e9];
 });
 
@@ -275,7 +275,15 @@ const isWithinDistance = (points, comparisonPoint, dist) => distance(getCentroid
 // gets the central position of a collection of points
 const getAvg = (points, index) => points.reduce((sum, point) => sum + point[index], 0) / points.length;
 // gets the coords of the mouse in canvas space
-const getCanvasMouseCoords = (mousePos) => [(mousePos[0] - canvasObject.left) / canvasObject.width * width, (mousePos[1] - canvasObject.top) / canvasObject.height * height];
+const getCanvasMouseCoords = (mousePos) => {
+  const rect = canvas.getBoundingClientRect();
+  const position = [
+    (mousePos[0] - rect.left) / rect.width * width, 
+    (mousePos[1] - rect.top) / rect.height * height
+  ]
+  
+  return position;
+};
 // snaps the given value (0-1) to the closest "quantisation level"
 function quantise(value, levels=10) {
   const step = 1 / (levels - 1);
@@ -360,49 +368,71 @@ let camDistOffset = 3.5;
 let lightXOffset = -1;
 
 const moveSpeedSlider = document.getElementById("move-speed");
+const moveSpeedLabel = document.getElementById("move-speed-label");
 const moveRangeSlider = document.getElementById("move-distance");
+const moveRangeLabel = document.getElementById("move-distance-label");
 const rotSpeedSlider = document.getElementById("rotation-speed");
+const rotSpeedLabel = document.getElementById("rotation-speed-label");
 const sphereSizeSlider = document.getElementById("sphere-size");
+const sphereSizeLabel = document.getElementById("sphere-size-label");
 const camDistSlider = document.getElementById("cam-distance");
+const camDistLabel = document.getElementById("cam-distance-label");
 
 const hoverToggle = document.getElementById("toggle-sphere-hover");
 const lightPosSlider = document.getElementById("light-position");
+const lightPosLabel = document.getElementById("light-position-label");
 const quantLevelSlider = document.getElementById("quantisation-level");
+const quantLevelLabel = document.getElementById("quantisation-level-label");
 const pixelationSlider = document.getElementById("pixelation-level");
+const pixelationLabel = document.getElementById("pixelation-level-label");
 const sphereDetailSlider = document.getElementById("sphere-detail");
+const sphereDetailLabel = document.getElementById("sphere-detail-label");
 
 const controlsToggle = document.getElementById("controls-toggle");
 const controlsDisplay = document.getElementById("controls-display");
 const controlsInfo = document.getElementById("controls-info");
+const controlsContent = document.getElementById("controls-content");
 
-setControlsVisible = (visible) => {
+let controlsVisible = false;
+
+let setControlsVisible = (visible) => {
+  controlsVisible = visible;
+
   if (visible) {
-    controlsDisplay.style.display = "flex";
-    controlsInfo.style.display = "block";
-  }
-  else {
-    controlsDisplay.style.display = "none";
-    controlsInfo.style.display = "none";
+    const height = controlsContent.scrollHeight;
+    controlsContent.style.height = (height + 10) + "px";
+  } else {
+    controlsContent.style.height = "0px";
   }
 };
 
-moveSpeedSlider.oninput = () => movSpeedMult = moveSpeedSlider.value / 10;
-moveRangeSlider.oninput = () => movDistMult = moveRangeSlider.value / 10;
-rotSpeedSlider.oninput = () => rotSpeedMult = rotSpeedSlider.value / 10;
-sphereSizeSlider.oninput = () => sphereScale = sphereSizeSlider.value / 10;
-camDistSlider.oninput = () => camDistOffset = camDistSlider.value / 10;
+moveSpeedSlider.oninput = () => {movSpeedMult = moveSpeedSlider.value / 10; moveSpeedLabel.innerText = movSpeedMult + "×"}
+moveRangeSlider.oninput = () => {movDistMult = moveRangeSlider.value / 10; moveRangeLabel.innerText = movDistMult + "×"}
+rotSpeedSlider.oninput = () => {rotSpeedMult = rotSpeedSlider.value / 10; rotSpeedLabel.innerText = rotSpeedMult + "×"}
+sphereSizeSlider.oninput = () => {sphereScale = sphereSizeSlider.value / 10; sphereSizeLabel.innerText = sphereScale + "×"}
+camDistSlider.oninput = () => {camDistOffset = camDistSlider.value / 10; camDistLabel.innerText = camDistOffset + "u"}
 
 hoverToggle.oninput = () => doHover = !doHover;
-lightPosSlider.oninput = () => {lightXOffset = lightPosSlider.value / -10; lights = [{direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9}]};
-quantLevelSlider.oninput = () => quantisationLevel = 2 ** (8 - quantLevelSlider.value);
-pixelationSlider.oninput = () => {pixelation = pixelationSlider.value; syncResolution();}
-sphereDetailSlider.oninput = () => sphereData = generateSphere(parseInt(sphereDetailSlider.value), parseInt(sphereDetailSlider.value) + 2);
+lightPosSlider.oninput = () => {
+  lightXOffset = lightPosSlider.value / -10;
+  lights = [{direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9}];
+  lightPosLabel.innerText = -lightXOffset + "u";
+};
+quantLevelSlider.oninput = () => {quantisationLevel = 2 ** quantLevelSlider.value; quantLevelLabel.innerText = quantisationLevel + " lvls"};
+pixelationSlider.oninput = () => {pixelation = (11 - pixelationSlider.value); syncResolution(); pixelationLabel.innerText = "1/" + pixelation}
+sphereDetailSlider.oninput = () => {sphereData = generateSphere(parseInt(sphereDetailSlider.value), parseInt(sphereDetailSlider.value) + 2); sphereDetailLabel.innerText = sphereData.faces.length + " f"};
 
-controlsToggle.onclick = () => setControlsVisible(controlsDisplay.style.display == "none");
+controlsToggle.onclick = () => setControlsVisible(!controlsVisible);
 
 const camLight = {direction: Vec3.normalise([lightXOffset, -0.5, 0.3]), brightness: 0.9};
 const ambient = 0.05;
 let lights = [camLight];
+
+// force initialise data
+const sliderInputs = document.querySelectorAll(".controls input");
+sliderInputs.forEach(input => {
+    input.dispatchEvent(new Event("input"));
+});
 
 syncResolution();
 requestAnimationFrame(renderLoop);
