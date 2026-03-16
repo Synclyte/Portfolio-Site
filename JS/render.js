@@ -429,7 +429,7 @@ const ambient = 0.05;
 let lights = [camLight];
 
 // force initialise data
-const sliderInputs = document.querySelectorAll(".controls input");
+const sliderInputs = document.querySelectorAll(".input-pair input");
 sliderInputs.forEach(input => {
     input.dispatchEvent(new Event("input"));
 });
