@@ -939,7 +939,7 @@ iframe {
     
     overflow: hidden;
     will-change: transform;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease;
     cursor: pointer;
     box-shadow: 0 calc(var(--box-shadow-size) * 3) var(--box-shadow-radius) var(--box-shadow-size) var(--box-shadow-colour);
 }
@@ -982,10 +982,7 @@ iframe {
 }
 
 .expanded-language div {
-    padding: 10px;
-}
-
-.expanded-language p {
+    padding: 6px;
     font-size: 14px;
 }
 
