@@ -36,11 +36,18 @@ function getScrollAmount() {
 function scrollToProject(index) {
     const affectedCard = projectCards[index];
     const cardInfo = affectedCard.querySelector(".info");
-    affectedCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setInterval(() => {
+        affectedCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+    
     cardInfo.classList.add("highlight-background");
     setInterval(() => {
         cardInfo.classList.remove("highlight-background");
     }, 1500);
+}
+
+function clickProject(index) {
+    projectCards[index].click();
 }
 
 function activateDropdown() {
