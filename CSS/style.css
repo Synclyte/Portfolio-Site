@@ -733,6 +733,14 @@ iframe {
     background-image: url("../Content/classifiersplash.png");
 }
 
+.tm-analyser::before {
+    background-image: url("../Content/tmanalyser.png");
+}
+
+.project-article.active-state .tm-analyser {
+    background-image: url("../Content/tmanalysersplash.png");
+}
+
 .photo {
     max-width: 60%;
     max-height: 60%;
@@ -806,7 +814,7 @@ iframe {
 
 .project-article.active-state {
     grid-column: 1 / -1;
-    width: 84vw;
+    width: 100%;
     justify-self: center;
     z-index: 20;
 
@@ -1146,7 +1154,7 @@ iframe {
     }
 
     .project-article.active-state {
-        width: 92vw;
+        width: 100%;
     }
 
     nav {
