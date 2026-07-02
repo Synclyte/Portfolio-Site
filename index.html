@@ -330,239 +330,132 @@
 
             <div class="js-enabled">
             <div class="project-container">
-
-                <article class="project-article" data-video="asR_lXg8EYc">
-                    <div class="project-parallax spacegolf">
+                <article class="project-article">
+                    <div class="project-parallax tm-analyser">
                         <h3>
-                            Space Golf
+                            Turing Analyser
                         </h3>
                     </div>
 
                     <div class="info">
                         <div class="content-summary">
                             <h3 class="nopad">Year</h3><hr class="tagbreak">
-                            <span class="info-tag">2023</span><hr class="tagbreak">
+                            <span class="info-tag">2026</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+                            <span class="info-tag">Rust</span> <span class="info-tag">Web</span> <span class="info-tag">Wasm</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 2D physics-based game about golf in space.
+                            This project is a Turing Machine time complexity analyser. Written in Rust using Wasm, Yew, and DaisyUI, 
+                            this web-based project implements novel functionality to aid in exploring the composition of Turing Machines.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
                                 <h3>Information</h3>
 
-                                This project was built over 3 months as the coursework submission for the Computer Science A-Level Coursework. This project was developed in the Unity game engine using C#. 
-                                
+                                This is a web-based project built in Rust, designed to analyse the time complexity of a given <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machine</a>, returning a <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big-O notation</a> estimation from empirical dynamic runtime analysis 
+                                utilising <a href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetic algorithm</a>-based and a uniquely extended grammar-based <a href="https://en.wikipedia.org/wiki/Fuzzing">fuzzing</a> approach.
+                                <br><br>
+                                <a href="https://tur.synclyte.online">This project is available here</a>
+
                                 <h3>Concept and Features</h3>
 
-                                In this game, players must hit a golf ball to a flag as fast as possible and in as few swings as possible, utilising gravity to do so.
+                                Turing Machines are an abstract model of computation, popular in automata theory for their simplicity and computational equivalence to modern computers. This popularity has brought a 
+                                significant number of Turing Machine simulators, designed to assist students in understanding their workings and importance. Broadly, existing simulators implement minimal functionality, 
+                                missing various features a student may find useful in aiding understanding. This project implements one such feature, through bridging the comprehension gap between Turing Machines and 
+                                contemporary computer programs through implementing time complexity estimation. This serves to both guide the production of such machines alongside providing a metric to liken their execution 
+                                to prior taught algorithms.
                                 <br><br>
-                                To aid a user in achieving this, they are provided a swing, executed through clicking and dragging on the screen, with a greater displacement magnitude corresponding to 
-                                a higher power swing. Additionally, users are able to correct their trajectory using an additional mid-air velocity boost to improve ease of use.
+                                This is achieved through the use dynamic runtime analysis, through two methods: genetic algorithms and grammar-based fuzzing. These dynamically produce inputs for the Turing Machine over various 
+                                input sizes, which are subsequently executed to produce a list of inputs and their respective runtimes, allowing for estimation of runtime. Uniquely, the approach used for grammar-based fuzzing 
+                                implements variables within repetition ranges, integrating context awareness, increasing its capabilities beyond those of standard fuzzers. This allows much better exploration of Turing Machines 
+                                through partially bypassing the limitations of prior solutions.
                                 <br><br>
-                                The game features 7 levels, allowing users to play in singleplayer or turn-based local multiplayer.
+                                These results are then provided to the Wasm/Yew Rust frontend and plotted using JavaScript, resulting in clear and concise graphs breaking down runtimes, estimations, and state visits for all states 
+                                over all runtimes. This provides the information required to better allow users to understand Turing Machines.
 
                                 <h3>Challenges</h3>
 
-                                This project was produced rapidly and without extensive planning, iteratively adding features as they were required. This led to the project quickly accruing extensive technical debt as components were 
-                                naively appended to the project without consideration of future features. This led to a highly coupled prototype which proved extremely brittle to modification, highlighting the necessity of a modular 
-                                approach. Subsequent rewriting and refactoring of prior code taught me the importance of planning and code modularity.
+                                This project implements a multi-level lexer, including support for both input grammars and mathematical expressions within contained ranges, alongside variables within ranges. The greatest challenge faced 
+                                was the implementation of variable-based grammatical fuzzing, requiring extensive research into relevant algorithms and implementation planning. This was a complex challenge, requiring a combination 
+                                of previously unknown algorithms to reach a working and highly performant solution.
                                 <br><br>
-                                Additionally, being the first highly visual project worked on, this required exploration of UI/UX design. Without a background or prior interest in graphical design, this proved difficult to perform eloquently. 
-                                Despite this, this served as an invaluable introduction to design and inspired changes future approaches to interface production. 
-                                
+                                Additionally, this project was built on existing work, necessitating reading documentation and understanding the previously built solution and component interaction to meaningfully proceed. This 
+                                was the first major project constructed in this way, and taught the necessity of producing and reading high-quality documentation to understand prior work. 
+
                                 <h3>Skills Developed</h3>
 
-                                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Development</span> <span class="info-tag">UX/UI design</span>
+                                <span class="info-tag">Rust</span> <span class="info-tag">JavaScript</span> <span class="info-tag">Web Development</span> <span class="info-tag">Software Engineering</span>
                             </div>
                             <div class="dynamic-separator"></div>
-                            <div>
-                                <h3>Demo</h3>
-                                <div class="project-video"></div>
+                            <div class="project-images">
+                                <h3>Examples</h3>
+                                <h4>Genetic Algorithm</h4>
+                                <img src="Content/tmanalyser_ga.png" alt="Genetic algorithm-based analysis of unary subtraction">
+                                <h4>Grammar-based Fuzzing</h4>
+                                <img src="Content/tmanalyser_fuzz.png" alt="Grammar-based fuzzing analysis of unary subtraction">
                             </div>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-article" data-video="u29MLNapuhQ">
-                    <div class="project-parallax alchemygame">
+                <article class="project-article" data-video="QEAY7h3PNQs">
+                    <div class="project-parallax graphics-project">
                         <h3>
-                            Alchemy Game
+                            Graphical Project
                         </h3>
                     </div>
 
                     <div class="info">
                         <div class="content-summary">
                             <h3 class="nopad">Year</h3><hr class="tagbreak">
-                            <span class="info-tag">2024</span><hr class="tagbreak">
+                            <span class="info-tag">2025</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+                            <span class="info-tag">Java</span> <span class="info-tag">Graphical</span> <span class="info-tag">Shaders</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 3D game about time management and cooking.
+                            This project was written in Java using the <a href=https://jogamp.org/jogl/www>JOGL library</a>, a library which aims to import <a href=https://www.opengl.org>OpenGL</a> functionality to Java. It is a basic animated scene
+                             which uses low-level graphical techniques and shaders.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
                                 <h3>Information</h3>
 
-                                This project was created over the span of two weeks as part of a "game jam" - a time-limited development event wherein participants are required to
-                                to produce a video game following a provided theme. Participants may enter alone or as a group; this project was built with one other developer.
-                                <br><br>
-                                This project is heavily graphics focused by design, necessitating the use of graphical design software. To this end, Blender was used to produce basic untextured 3D models for use 
-                                as game assets, using the Unity game engine to provide implementations for rendering and physics. Written in C#, this project implements a cooking game based on receiving and fulfilling orders  
-                                through producing potions.
+                                This is a graphical project built using the <a href="https://jogamp.org/jogl/www">JOGL library</a> for Java, alongside <a href="https://en.wikipedia.org/wiki/Swing_(Java)">JSwing</a> to handle UI elements. This was built 
+                                over the course of 2 weeks as coursework for a university module.
 
                                 <h3>Concept and Features</h3>
 
-                                In this game, players must rush to complete increasingly difficult procedurally generated orders of potions as fast as possible, by processing ingredients and adding them to a cauldron.
-                                <br><br>
-                                To allow players to do this, they are able to move around a 3D space and pick up ingredients to be processed or used in a cauldron.
-                                <br><br>
-                                To generate orders, potions are created with given recipes. Difficulty and time given are then dynamically assigned based on a number of factors. If the difficulty of a given potion fits within a
-                                certain threshold, the potion is eligible to be chosen as the next order.
-                                <br><br>
-                                To make the cauldron functional, all potions are represented as a subset of a central volume. To make a potion, ingredients - which function as vectors, must be added to move the cauldron's position
-                                to reach a position within the desired potion volume. To aid in this, players are given recipes corresponding to this position but are able to find their own, more efficient recipes.
+                                This project is an animated scene built using low-level graphics concepts. This consists of an animated bee, statues
+                                (which feature proximity detection), and a backdrop, made from <a
+                                    href="https://en.wikipedia.org/wiki/2.5D#Billboarding">billboarding</a> trees and a sun.
+                                Each statue in the scene has a different affect on the bee, as shown in the demo - the wooden statue makes the bee flip
+                                over, the stone statue makes the bee circle around it, and the metal statue increases the flow of time.
+                                When a bee is in proximity of a statue, its face will change to reflect how long it has been near the bee.<br>
+                                <br>
+                                Objects in the scene and their animations (which are mostly determined by simple sine wave functions) are handled using
+                                transforms applied to nodes in a <a href="https://en.wikipedia.org/wiki/Scene_graph">scene graph</a>, and rendered by
+                                the GPU using <a href="https://en.wikipedia.org/wiki/Shader#Fragment_shaders">vertex and fragment shaders</a>. The
+                                fragment shader supports <a href="https://en.wikipedia.org/wiki/Shading#Point_lighting">multiple lights</a>, multiple
+                                types of light
+                                (pictured are directional and spotlights, but point lights are also supported), and has partial support for
+                                transparency. It uses the <a href="https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model">Blinn-Phong
+                                    reflection model</a> to shade objects and supports light attenuation for
+                                point lights and spotlights.
 
                                 <h3>Challenges</h3>
 
-                                The main challenge associated with this project was precise co-ordination. Constant communication was required to develop features under intense time pressure while simulaneously learning 3D modelling and planning systems. 
-                                Co-ordination was handled through scheduled meetings and burndown charts to track remaining features. This ensured that important features were given higher priority such that a functional prototype could be designed within the two week time limit. 
-                                <br><br>
-                                This approach was largely successful, resulting in a functional and playable prototype designed within two weeks, through careful management of scope.
+                                This project represents an introduction to low-level graphics programming. The primary challenge of this project was expectedly learning shader code - shaders are highly parallel and require 
+                                a different methodology behind their composition, as data is not directly transferrable between shader iterations. Instead, data is either provided by the previous shader or provided by the CPU, passed in as a uniform. 
+                                Both of these methods work very differently to how typical CPU code handles data, and requires extensive learning and planning to operate effectively.<br>
+                                <br>
+                                Alongside this, modelling in this project was done without the use of previously used tools like Blender, as was used before in the <a onclick="scrollToProject(1)">Alchemy Game</a>. Instead, models were designed through a 
+                                scene graph, using nodes to produce primitive shapes and the transforms which separated, scaled, and animated them.
 
                                 <h3>Skills Developed</h3>
 
-                                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">3D Modelling</span>
-                            </div>
-                            <div class="dynamic-separator"></div>
-                            <div>
-                                <h3>Demo</h3>
-                                <div class="project-video"></div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-article" data-video="bicAS14-vLk">
-                    <div class="project-parallax dbexplorer">
-                        <h3 class="inverse-colour">
-                            Database Explorer
-                        </h3>
-                    </div>
-
-                    <div class="info">
-                        <div class="content-summary">
-                            <h3 class="nopad">Year</h3><hr class="tagbreak">
-                            <span class="info-tag">2024</span><hr class="tagbreak">
-
-                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Java</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
-
-                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in Java using <a href=https://en.wikipedia.org/wiki/Swing_(Java)>JSwing</a> for the GUI. It is a graphical application designed for querying a database.
-                        </div>
-                        <div class="content-expanded">
-                            <div class="expanded-text">
-                                <h3>Information</h3>
-
-                                This project was created in around two weeks, produced in Java using the JSwing library. This project implements an SQL-like syntax for searching a given database, through exploring the fundamental 
-                                concepts behind interpreted languages. This involved producing a basic lexer in Java to parse and combine queries using logical operators.
-
-                                <h3>Concept and Features</h3>
-
-                                This project formats and searches a database. To do this, an SQL-like query language was written supporting the use of various tokens. These include mathematical operators (&lt, &lt=, ==, &gt, &gt=),
-                                comparative string operators (begins, contains, equals), and logical operators (AND, OR, XOR, NAND, NOR, XNOR) and brackets to connect subqueries, alongside the NOT operator to invert a subquery.
-                                <br><br>
-                                To format the database, the database is scanned as it is read and data types are categorised as either numeric or a string (based on whether entries can be parsed as a float),
-                                and either filterable or non-filterable (based on how many unique entries there are). This is used to generate filters and choose the correct type of operator for the input given.
-                                <br><br>
-                                The language also supports the selection of any number of valid database data types in its arguments alongside the use of the wildcard (*) to select all data types. These can be chained in any order.
-                                <br><br>
-                                Alongside this, I built a class to combine any two given databases by a common type - the demo for this project uses a modified version of the publically availible IMDB database, having combined the
-                                ratings and basic databases.
-
-                                <h3>Challenges</h3>
-
-                                The most significant challenge of producing this project was in UI design. JSwing requires a heavily nested approach to UI design, which through the verbosity of Java can quickly 
-                                become complex and obfuscate prior UI component function. This required a better approach to code structure and a modification to naming conventions to reduce variable ambiguity, thereby teaching 
-                                their importance.
-                                <br><br>
-                                The other major challenges was in producing the query parser and the necessary classes to flexibly and dynamically support query parsing. Setting up these classes was relatively complex
-                                compared to many of the projects previously completed, and represented the first time modularity was heavily considered as a design component.
-
-                                <h3>Skills Developed</h3>
-
-                                <span class="info-tag">Java</span> <span class="info-tag">Software Development</span>
-                            </div>
-                            <div class="dynamic-separator"></div>
-                            <div>
-                                <h3>Demo</h3>
-                                <div class="project-video"></div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-article" data-video="bYqru-7I91M">
-                    <div class="project-parallax poker">
-                        <h3>
-                            Poker
-                        </h3>
-                    </div>
-
-                    <div class="info">
-                        <div class="content-summary">
-                            <h3 class="nopad">Year</h3><hr class="tagbreak">
-                            <span class="info-tag">2024</span><hr class="tagbreak">
-
-                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
-
-                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in pure Haskell. It is a CLI-based game designed to simulate games of <a href=https://en.wikipedia.org/wiki/Texas_hold_%27em>Texas Hold Em' poker</a> between both bots and humans.
-                        </div>
-                        <div class="content-expanded">
-                            <div class="expanded-text">
-                                <h3>Information</h3>
-
-                                This project was created over around three weeks, and is a recreation of Texas Hold Em' poker, complete with support for AI bots and Jokers.
-                                <br><br>
-                                This project was produced using an entirely new programming paradigm - functional programming. Haskell is a purely functional language and thus works very differently from the procedural and 
-                                object-oriented programming languages previously used.
-
-                                <h3>Concept and Features</h3>
-
-                                This game is a recreation of <a href="https://en.wikipedia.org/wiki/Texas_hold_%27em" target="_blank">Texas Hold Em' poker</a>, a popular card game.
-                                <br><br>
-                                This version allows for human players to play alongside bots, which use a variety of basic strategies - of which there are 4 implemented.
-                                <ul>
-                                    <li>A random AI, which makes moves entirely based on chance without considering the game state.</li>
-                                    <li>A passive AI, an extension of the random AI with more passive tunings, which moves based on the current bet amount.</li>
-                                    <li>An aggressive AI, an extension of the random AI with more aggressive tunings, which moves based on its chip advantage.</li>
-                                    <li>A smart AI, which uses a complex function to evaluate its hand and how it should fare relatively, alongside a fuzzy logic-based decision tree to decide whether a bet is worth taking.</li>
-                                </ul>
-                                Additionally, Jokers were implemented as wildcards. Any number can be added to the deck, and will always produce the best possible result.
-
-                                <h3>Challenges</h3>
-
-                                This project necessitated learning an entierely new programming paradigm. Haskell, amongst many functional programming languages enforces a few strange practises, the most striking of which being
-                                the inherent limitation on the length of a function. The lack of a true for or while loop in the language forces a recursive solution to most problems, necessitating restructuring logic.
-                                <br><br>
-                                Other major complications included implementing an initially unplanned feature - Jokers. The addition of Jokers required a rewrite of all functions related to checking hand strength and getting a
-                                certain hand type. These rewrites typically significantly increased complexity as the logic to always get a Joker in the correct place is sometimes quite complex. One notably complex example was
-                                checking for straights, which Jokers must always both attempt to complete and find the best available straight.
-                                <br><br>
-                                Finally, the last major challenge was debugging. Haskell is a pure functional programming language and evaluates expressions lazily; values are not calculated
-                                until they are required elsewhere in the program. This can greatly increase the difficulty of debugging, as the debug trace will not be evaluated unless the expression itself is, making debug
-                                behaviour somewhat unpredictable through causing infections to propagate unexpectedly far away. 
-
-                                <h3>Skills Developed</h3>
-
-                                <span class="info-tag">Haskell</span> <span class="info-tag">Software Development</span> <span class="info-tag">Functional Programming</span>
+                                <span class="info-tag">Java</span> <span class="info-tag">Shaders</span> <span class="info-tag">Graphics Programming</span>
                             </div>
                             <div class="dynamic-separator"></div>
                             <div>
@@ -640,63 +533,62 @@
                     </div>
                 </article>
 
-                <article class="project-article" data-video="QEAY7h3PNQs">
-                    <div class="project-parallax graphics-project">
+                <article class="project-article" data-video="bYqru-7I91M">
+                    <div class="project-parallax poker">
                         <h3>
-                            Graphical Project
+                            Poker
                         </h3>
                     </div>
 
                     <div class="info">
                         <div class="content-summary">
                             <h3 class="nopad">Year</h3><hr class="tagbreak">
-                            <span class="info-tag">2025</span><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Java</span> <span class="info-tag">Graphical</span> <span class="info-tag">Shaders</span><hr class="tagbreak">
+                            <span class="info-tag">Haskell</span> <span class="info-tag">Functional</span> <span class="info-tag">CLI-based</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project was written in Java using the <a href=https://jogamp.org/jogl/www>JOGL library</a>, a library which aims to import <a href=https://www.opengl.org>OpenGL</a> functionality to Java. It is a basic animated scene
-                             which uses low-level graphical techniques and shaders.
+                            This project was written in pure Haskell. It is a CLI-based game designed to simulate games of <a href=https://en.wikipedia.org/wiki/Texas_hold_%27em>Texas Hold Em' poker</a> between both bots and humans.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
                                 <h3>Information</h3>
 
-                                This is a graphical project built using the <a href="https://jogamp.org/jogl/www">JOGL library</a> for Java, alongside <a href="https://en.wikipedia.org/wiki/Swing_(Java)">JSwing</a> to handle UI elements. This was built 
-                                over the course of 2 weeks as coursework for a university module.
+                                This project was created over around three weeks, and is a recreation of Texas Hold Em' poker, complete with support for AI bots and Jokers.
+                                <br><br>
+                                This project was produced using an entirely new programming paradigm - functional programming. Haskell is a purely functional language and thus works very differently from the procedural and 
+                                object-oriented programming languages previously used.
 
                                 <h3>Concept and Features</h3>
 
-                                This project is an animated scene built using low-level graphics concepts. This consists of an animated bee, statues
-                                (which feature proximity detection), and a backdrop, made from <a
-                                    href="https://en.wikipedia.org/wiki/2.5D#Billboarding">billboarding</a> trees and a sun.
-                                Each statue in the scene has a different affect on the bee, as shown in the demo - the wooden statue makes the bee flip
-                                over, the stone statue makes the bee circle around it, and the metal statue increases the flow of time.
-                                When a bee is in proximity of a statue, its face will change to reflect how long it has been near the bee.<br>
-                                <br>
-                                Objects in the scene and their animations (which are mostly determined by simple sine wave functions) are handled using
-                                transforms applied to nodes in a <a href="https://en.wikipedia.org/wiki/Scene_graph">scene graph</a>, and rendered by
-                                the GPU using <a href="https://en.wikipedia.org/wiki/Shader#Fragment_shaders">vertex and fragment shaders</a>. The
-                                fragment shader supports <a href="https://en.wikipedia.org/wiki/Shading#Point_lighting">multiple lights</a>, multiple
-                                types of light
-                                (pictured are directional and spotlights, but point lights are also supported), and has partial support for
-                                transparency. It uses the <a href="https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model">Blinn-Phong
-                                    reflection model</a> to shade objects and supports light attenuation for
-                                point lights and spotlights.
+                                This game is a recreation of <a href="https://en.wikipedia.org/wiki/Texas_hold_%27em" target="_blank">Texas Hold Em' poker</a>, a popular card game.
+                                <br><br>
+                                This version allows for human players to play alongside bots, which use a variety of basic strategies - of which there are 4 implemented.
+                                <ul>
+                                    <li>A random AI, which makes moves entirely based on chance without considering the game state.</li>
+                                    <li>A passive AI, an extension of the random AI with more passive tunings, which moves based on the current bet amount.</li>
+                                    <li>An aggressive AI, an extension of the random AI with more aggressive tunings, which moves based on its chip advantage.</li>
+                                    <li>A smart AI, which uses a complex function to evaluate its hand and how it should fare relatively, alongside a fuzzy logic-based decision tree to decide whether a bet is worth taking.</li>
+                                </ul>
+                                Additionally, Jokers were implemented as wildcards. Any number can be added to the deck, and will always produce the best possible result.
 
                                 <h3>Challenges</h3>
 
-                                This project represents an introduction to low-level graphics programming. The primary challenge of this project was expectedly learning shader code - shaders are highly parallel and require 
-                                a different methodology behind their composition, as data is not directly transferrable between shader iterations. Instead, data is either provided by the previous shader or provided by the CPU, passed in as a uniform. 
-                                Both of these methods work very differently to how typical CPU code handles data, and requires extensive learning and planning to operate effectively.<br>
-                                <br>
-                                Alongside this, modelling in this project was done without the use of previously used tools like Blender, as was used before in the <a onclick="scrollToProject(1)">Alchemy Game</a>. Instead, models were designed through a 
-                                scene graph, using nodes to produce primitive shapes and the transforms which separated, scaled, and animated them.
+                                This project necessitated learning an entierely new programming paradigm. Haskell, amongst many functional programming languages enforces a few strange practises, the most striking of which being
+                                the inherent limitation on the length of a function. The lack of a true for or while loop in the language forces a recursive solution to most problems, necessitating restructuring logic.
+                                <br><br>
+                                Other major complications included implementing an initially unplanned feature - Jokers. The addition of Jokers required a rewrite of all functions related to checking hand strength and getting a
+                                certain hand type. These rewrites typically significantly increased complexity as the logic to always get a Joker in the correct place is sometimes quite complex. One notably complex example was
+                                checking for straights, which Jokers must always both attempt to complete and find the best available straight.
+                                <br><br>
+                                Finally, the last major challenge was debugging. Haskell is a pure functional programming language and evaluates expressions lazily; values are not calculated
+                                until they are required elsewhere in the program. This can greatly increase the difficulty of debugging, as the debug trace will not be evaluated unless the expression itself is, making debug
+                                behaviour somewhat unpredictable through causing infections to propagate unexpectedly far away. 
 
                                 <h3>Skills Developed</h3>
 
-                                <span class="info-tag">Java</span> <span class="info-tag">Shaders</span> <span class="info-tag">Graphics Programming</span>
+                                <span class="info-tag">Haskell</span> <span class="info-tag">Software Development</span> <span class="info-tag">Functional Programming</span>
                             </div>
                             <div class="dynamic-separator"></div>
                             <div>
@@ -707,70 +599,177 @@
                     </div>
                 </article>
 
-                <article class="project-article">
-                    <div class="project-parallax tm-analyser">
-                        <h3>
-                            Turing Analyser
+                <article class="project-article" data-video="bicAS14-vLk">
+                    <div class="project-parallax dbexplorer">
+                        <h3 class="inverse-colour">
+                            Database Explorer
                         </h3>
                     </div>
 
                     <div class="info">
                         <div class="content-summary">
                             <h3 class="nopad">Year</h3><hr class="tagbreak">
-                            <span class="info-tag">2026</span><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
 
                             <h3 class="nopad">Tags</h3><hr class="tagbreak">
-                            <span class="info-tag">Rust</span> <span class="info-tag">Web</span> <span class="info-tag">Wasm</span><hr class="tagbreak">
+                            <span class="info-tag">Java</span> <span class="info-tag">Database</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project is a Turing Machine time complexity analyser. Written in Rust using Wasm, Yew, and DaisyUI, 
-                            this web-based project implements novel functionality to aid in exploring the composition of Turing Machines.
+                            This project was written in Java using <a href=https://en.wikipedia.org/wiki/Swing_(Java)>JSwing</a> for the GUI. It is a graphical application designed for querying a database.
                         </div>
                         <div class="content-expanded">
                             <div class="expanded-text">
                                 <h3>Information</h3>
 
-                                This is a web-based project built in Rust, designed to analyse the time complexity of a given <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machine</a>, returning a <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big-O notation</a> estimation from empirical dynamic runtime analysis 
-                                utilising <a href="https://en.wikipedia.org/wiki/Genetic_algorithm">genetic algorithm</a>-based and a uniquely extended grammar-based <a href="https://en.wikipedia.org/wiki/Fuzzing">fuzzing</a> approach.
-                                <br><br>
-                                <a href="https://tur.synclyte.online">This project is available here</a>
+                                This project was created in around two weeks, produced in Java using the JSwing library. This project implements an SQL-like syntax for searching a given database, through exploring the fundamental 
+                                concepts behind interpreted languages. This involved producing a basic lexer in Java to parse and combine queries using logical operators.
 
                                 <h3>Concept and Features</h3>
 
-                                Turing Machines are an abstract model of computation, popular in automata theory for their simplicity and computational equivalence to modern computers. This popularity has brought a 
-                                significant number of Turing Machine simulators, designed to assist students in understanding their workings and importance. Broadly, existing simulators implement minimal functionality, 
-                                missing various features a student may find useful in aiding understanding. This project implements one such feature, through bridging the comprehension gap between Turing Machines and 
-                                contemporary computer programs through implementing time complexity estimation. This serves to both guide the production of such machines alongside providing a metric to liken their execution 
-                                to prior taught algorithms.
+                                This project formats and searches a database. To do this, an SQL-like query language was written supporting the use of various tokens. These include mathematical operators (&lt, &lt=, ==, &gt, &gt=),
+                                comparative string operators (begins, contains, equals), and logical operators (AND, OR, XOR, NAND, NOR, XNOR) and brackets to connect subqueries, alongside the NOT operator to invert a subquery.
                                 <br><br>
-                                This is achieved through the use dynamic runtime analysis, through two methods: genetic algorithms and grammar-based fuzzing. These dynamically produce inputs for the Turing Machine over various 
-                                input sizes, which are subsequently executed to produce a list of inputs and their respective runtimes, allowing for estimation of runtime. Uniquely, the approach used for grammar-based fuzzing 
-                                implements variables within repetition ranges, integrating context awareness, increasing its capabilities beyond those of standard fuzzers. This allows much better exploration of Turing Machines 
-                                through partially bypassing the limitations of prior solutions.
+                                To format the database, the database is scanned as it is read and data types are categorised as either numeric or a string (based on whether entries can be parsed as a float),
+                                and either filterable or non-filterable (based on how many unique entries there are). This is used to generate filters and choose the correct type of operator for the input given.
                                 <br><br>
-                                These results are then provided to the Wasm/Yew Rust frontend and plotted using JavaScript, resulting in clear and concise graphs breaking down runtimes, estimations, and state visits for all states 
-                                over all runtimes. This provides the information required to better allow users to understand Turing Machines.
+                                The language also supports the selection of any number of valid database data types in its arguments alongside the use of the wildcard (*) to select all data types. These can be chained in any order.
+                                <br><br>
+                                Alongside this, I built a class to combine any two given databases by a common type - the demo for this project uses a modified version of the publically availible IMDB database, having combined the
+                                ratings and basic databases.
 
                                 <h3>Challenges</h3>
 
-                                This project implements a multi-level lexer, including support for both input grammars and mathematical expressions within contained ranges, alongside variables within ranges. The greatest challenge faced 
-                                was the implementation of variable-based grammatical fuzzing, requiring extensive research into relevant algorithms and implementation planning. This was a complex challenge, requiring a combination 
-                                of previously unknown algorithms to reach a working and highly performant solution.
+                                The most significant challenge of producing this project was in UI design. JSwing requires a heavily nested approach to UI design, which through the verbosity of Java can quickly 
+                                become complex and obfuscate prior UI component function. This required a better approach to code structure and a modification to naming conventions to reduce variable ambiguity, thereby teaching 
+                                their importance.
                                 <br><br>
-                                Additionally, this project was built on existing work, necessitating reading documentation and understanding the previously built solution and component interaction to meaningfully proceed. This 
-                                was the first major project constructed in this way, and taught the necessity of producing and reading high-quality documentation to understand prior work. 
+                                The other major challenges was in producing the query parser and the necessary classes to flexibly and dynamically support query parsing. Setting up these classes was relatively complex
+                                compared to many of the projects previously completed, and represented the first time modularity was heavily considered as a design component.
 
                                 <h3>Skills Developed</h3>
 
-                                <span class="info-tag">Rust</span> <span class="info-tag">JavaScript</span> <span class="info-tag">Web Development</span> <span class="info-tag">Software Engineering</span>
+                                <span class="info-tag">Java</span> <span class="info-tag">Software Development</span>
                             </div>
                             <div class="dynamic-separator"></div>
-                            <div class="project-images">
-                                <h3>Examples</h3>
-                                <h4>Genetic Algorithm</h4>
-                                <img src="Content/tmanalyser_ga.png" alt="Genetic algorithm-based analysis of unary subtraction">
-                                <h4>Grammar-based Fuzzing</h4>
-                                <img src="Content/tmanalyser_fuzz.png" alt="Grammar-based fuzzing analysis of unary subtraction">
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article" data-video="u29MLNapuhQ">
+                    <div class="project-parallax alchemygame">
+                        <h3>
+                            Alchemy Game
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2024</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 3D game about time management and cooking.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                <h3>Information</h3>
+
+                                This project was created over the span of two weeks as part of a "game jam" - a time-limited development event wherein participants are required to
+                                to produce a video game following a provided theme. Participants may enter alone or as a group; this project was built with one other developer.
+                                <br><br>
+                                This project is heavily graphics focused by design, necessitating the use of graphical design software. To this end, Blender was used to produce basic untextured 3D models for use 
+                                as game assets, using the Unity game engine to provide implementations for rendering and physics. Written in C#, this project implements a cooking game based on receiving and fulfilling orders  
+                                through producing potions.
+
+                                <h3>Concept and Features</h3>
+
+                                In this game, players must rush to complete increasingly difficult procedurally generated orders of potions as fast as possible, by processing ingredients and adding them to a cauldron.
+                                <br><br>
+                                To allow players to do this, they are able to move around a 3D space and pick up ingredients to be processed or used in a cauldron.
+                                <br><br>
+                                To generate orders, potions are created with given recipes. Difficulty and time given are then dynamically assigned based on a number of factors. If the difficulty of a given potion fits within a
+                                certain threshold, the potion is eligible to be chosen as the next order.
+                                <br><br>
+                                To make the cauldron functional, all potions are represented as a subset of a central volume. To make a potion, ingredients - which function as vectors, must be added to move the cauldron's position
+                                to reach a position within the desired potion volume. To aid in this, players are given recipes corresponding to this position but are able to find their own, more efficient recipes.
+
+                                <h3>Challenges</h3>
+
+                                The main challenge associated with this project was precise co-ordination. Constant communication was required to develop features under intense time pressure while simulaneously learning 3D modelling and planning systems. 
+                                Co-ordination was handled through scheduled meetings and burndown charts to track remaining features. This ensured that important features were given higher priority such that a functional prototype could be designed within the two week time limit. 
+                                <br><br>
+                                This approach was largely successful, resulting in a functional and playable prototype designed within two weeks, through careful management of scope.
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Engineering</span> <span class="info-tag">3D Modelling</span>
+                            </div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article" data-video="asR_lXg8EYc">
+                    <div class="project-parallax spacegolf">
+                        <h3>
+                            Space Golf
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2023</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">C#</span> <span class="info-tag">Game</span> <span class="info-tag">Physics</span> <span class="info-tag">Graphical</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project was written in C# using the <a href=https://en.wikipedia.org/wiki/Unity_(game_engine)>Unity</a> game engine. It is a 2D physics-based game about golf in space.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                <h3>Information</h3>
+
+                                This project was built over 3 months as the coursework submission for the Computer Science A-Level Coursework. This project was developed in the Unity game engine using C#. 
+                                
+                                <h3>Concept and Features</h3>
+
+                                In this game, players must hit a golf ball to a flag as fast as possible and in as few swings as possible, utilising gravity to do so.
+                                <br><br>
+                                To aid a user in achieving this, they are provided a swing, executed through clicking and dragging on the screen, with a greater displacement magnitude corresponding to 
+                                a higher power swing. Additionally, users are able to correct their trajectory using an additional mid-air velocity boost to improve ease of use.
+                                <br><br>
+                                The game features 7 levels, allowing users to play in singleplayer or turn-based local multiplayer.
+
+                                <h3>Challenges</h3>
+
+                                This project was produced rapidly and without extensive planning, iteratively adding features as they were required. This led to the project quickly accruing extensive technical debt as components were 
+                                naively appended to the project without consideration of future features. This led to a highly coupled prototype which proved extremely brittle to modification, highlighting the necessity of a modular 
+                                approach. Subsequent rewriting and refactoring of prior code taught me the importance of planning and code modularity.
+                                <br><br>
+                                Additionally, being the first highly visual project worked on, this required exploration of UI/UX design. Without a background or prior interest in graphical design, this proved difficult to perform eloquently. 
+                                Despite this, this served as an invaluable introduction to design and inspired changes future approaches to interface production. 
+                                
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">C#</span> <span class="info-tag">Unity</span> <span class="info-tag">Software Development</span> <span class="info-tag">UX/UI design</span>
+                            </div>
+                            <div class="dynamic-separator"></div>
+                            <div>
+                                <h3>Demo</h3>
+                                <div class="project-video"></div>
                             </div>
                         </div>
                     </div>
