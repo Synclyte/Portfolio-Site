@@ -754,7 +754,7 @@ iframe {
 }
 
 .project-article.active-state .cnn-classifier {
-    background-image: url("../Content/cnn_augmented_splash.png");
+    background-image: url("../Content/cnn_augmented_splash.webp");
 }
 
 .add-contrast h3 {
