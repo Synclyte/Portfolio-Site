@@ -750,7 +750,7 @@ iframe {
 }
 
 .cnn-classifier::before {
-    background-image: url("../Content/cnn_augmented_images.png");
+    background-image: url("../Content/cnn_augmented_images.webp");
 }
 
 .project-article.active-state .cnn-classifier {
