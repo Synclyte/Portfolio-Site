@@ -143,17 +143,17 @@
         <section class="text-container about-box">
             <div>
             <h2 class="nopad">About Me</h2><br><br>
-            I'm Jake Sutcliffe, a student with a passion for Computer Science, Software Engineering and Statistics.
+            I am Jake Sutcliffe, a graduate with a passion for Computer Science, Software Engineering and Statistics.
             <br><br>
-            I've been producing moderately-sized programming projects for around 7 years and been programming for much longer. Some projects I've built are small such as graphical implementations of Battleships,
-                Noughts and Crosses, and Minesweeper using Pygame in Python, while some are far larger and more complex - such as the projects prominently displayed below.
+            I have been programming for around 10 years, building a plethora of unique projects across a variety of disciplines. Some projects I have built are small such as graphical implementations of Battleships,
+                Noughts and Crosses, and Minesweeper using Pygame in Python, while some are far larger and more complex.
             <br><br>
-            Currently, I'm a third year at the University of Sheffield studying an undergraduate degree in Computer Science.
+            My studies at the Univeristy of Sheffield for an undergraduate degree in Computer Science have recently concluded, and I am actively searching for a graduate role in software engineering.
 
             <h2>Accomplishments</h2>
             <h3>Degrees</h3>
             <ul>
-                <li>University of Sheffield, BSc Computer Science, Graduating 2026</li>
+                <li>University of Sheffield, BSc Computer Science, results pending (expected 2:1)</li>
             </ul>
             <h3>A-Levels</h3>
             <ul>
@@ -346,7 +346,7 @@
                             <span class="info-tag">Rust</span> <span class="info-tag">Web</span> <span class="info-tag">Wasm</span><hr class="tagbreak">
 
                             <h3 class="nopad">Summary</h3><hr class="tagbreak">
-                            This project is a Turing Machine time complexity analyser. Written in Rust using Wasm, Yew, and DaisyUI, 
+                            This project is a <a href="https://en.wikipedia.org/wiki/Turing_machine">Turing Machine</a> time complexity analyser. Written in Rust using Wasm, Yew, and DaisyUI, 
                             this web-based project implements novel functionality to aid in exploring the composition of Turing Machines.
                         </div>
                         <div class="content-expanded">
@@ -394,6 +394,66 @@
                                 <img src="Content/tmanalyser_ga.png" alt="Genetic algorithm-based analysis of unary subtraction">
                                 <h4>Grammar-based Fuzzing</h4>
                                 <img src="Content/tmanalyser_fuzz.png" alt="Grammar-based fuzzing analysis of unary subtraction">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-article">
+                    <div class="project-parallax cnn-classifier add-contrast">
+                        <h3>
+                            CNN Image Classifier
+                        </h3>
+                    </div>
+
+                    <div class="info">
+                        <div class="content-summary">
+                            <h3 class="nopad">Year</h3><hr class="tagbreak">
+                            <span class="info-tag">2026</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Tags</h3><hr class="tagbreak">
+                            <span class="info-tag">Python</span> <span class="info-tag">Classification</span> <span class="info-tag">Machine Learning</span><hr class="tagbreak">
+
+                            <h3 class="nopad">Summary</h3><hr class="tagbreak">
+                            This project is a convolutional neural network-based image classifier. Written in Python using PyTorch, this project fine-tunes and prunes the <a href="https://docs.pytorch.org/vision/main/models/mobilenetv3.html">MobileNet V3</a> classification model 
+                            for use on a curated set of images.
+                        </div>
+                        <div class="content-expanded">
+                            <div class="expanded-text">
+                                <h3>Information</h3>
+
+                                This is a Jupyter-based project built in Python, designed for the fine-tuning, pruning, and evaluation of a custom dataset of images of flowers. 
+                                This project modifies the MobileNet V3 architecture in a full end-to-end classification pipeline.
+
+                                <h3>Concept and Features</h3>
+
+                                This project involved collecting and processing images of various flowers, involving capturing images across various conditions, backgrounds, and angles to reduce overfitting in the resulting model. 
+                                These images were divided into training and test datasets, cropped, and labelled. Further, the training dataset used in the project itself implements further augmentations to these images, implementing a resize to fit the model input specification, random rigid transformations, 
+                                and colour jitter to reduce model overfitting.
+                                <br><br>
+                                Based on this data, this project then fine-tunes an existing model (MobileNet V3) using the <a href="https://en.wikipedia.org/wiki/Cross-entropy#Cross-entropy_loss_function_and_logistic_regression">Cross Entropy Loss</a> function with the <a href="https://docs.pytorch.org/docs/2.12/generated/torch.optim.Adam.html">Adam optimiser</a> to achieve high accuracy on the dataset over a small number of epochs with a decaying learning rate. 
+                                After, this model is used in pruning, wherein each conducted prune removes a small amount of the model (~6%), before conducting fine-tuning to recover accuracy. This process is repeated until the desired portion of parameters are removed.
+                                <br><br>
+                                This results in a significantly smaller yet still highly accurate model, capable of performing extremely similarly in the provided test dataset to the prior full model. 
+                                In testing, this resulted in recorded accuracies of 98-100% pre-pruning, and 97-100% post-pruning while model parameters and FLOPs were reduced 55%.
+
+                                <h3>Challenges</h3>
+
+                                This project achieves a result of reducing the model size by 55%. MobileNet V3 is already a compact architecture <a href="https://docs.pytorch.org/vision/stable/models.html">relative to contemporary architectures</a> like DenseNet, and thus is prone to brittleness. This required an 
+                                iterative pruning-healing approach to ensure that the network was not permanently damaged by overpruning. Tuning hyperparameters and implementing this approach constituted the largest challenges faced in the 
+                                implementation of this project.
+
+                                <h3>Skills Developed</h3>
+
+                                <span class="info-tag">Python</span> <span class="info-tag">Classification</span> <span class="info-tag">Machine Learning</span>
+                            </div>
+                            <div class="dynamic-separator"></div>
+                            <div class="project-images">
+                                <h3>Dataset Samples</h3>
+                                <h4>Training</h4>
+                                <img src="Content/cnn_training.png" alt="Augmented dataset images used in training">
+                                <h4>Testing</h4>
+                                <img src="Content/cnn_testing.png" alt="Non-augmented dataset images used in testing">
                             </div>
                         </div>
                     </div>
@@ -467,9 +527,9 @@
                 </article>
 
                 <article class="project-article">
-                    <div class="project-parallax classifier">
+                    <div class="project-parallax classifier add-contrast">
                         <h3>
-                            Classifier
+                            K-NN Image Classifier
                         </h3>
                     </div>
 

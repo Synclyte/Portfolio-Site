@@ -686,7 +686,7 @@ iframe {
 }
 
 .classifier {
-    color: rgb(255, 26, 240);
+    color: #d9e7e7;
 }
 
 .classifier::before {
@@ -743,6 +743,24 @@ iframe {
 
 .project-article.active-state .tm-analyser {
     background-image: url("../Content/tmanalysersplash.png");
+}
+
+.cnn-classifier {
+    color:#d9e7e7;
+}
+
+.cnn-classifier::before {
+    background-image: url("../Content/cnn_augmented_images.png");
+}
+
+.project-article.active-state .cnn-classifier {
+    background-image: url("../Content/cnn_augmented_splash.png");
+}
+
+.add-contrast h3 {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);    
 }
 
 .photo {
