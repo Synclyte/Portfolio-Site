@@ -89,7 +89,7 @@ document.addEventListener("scroll", function () {
 
 
 window.addEventListener("DOMContentLoaded", function () {
-    const rotationCap = 2.5;
+    const rotationCap = 7.5;
 
     projectCards.forEach(card => {
         let rect = card.getBoundingClientRect();
