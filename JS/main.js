@@ -187,7 +187,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const languageGrid = document.querySelector(".language-grid");
     const languageCards = document.querySelectorAll(".language-article");
     const scalar = 8;
-    const cap = 22;
+    const cap = 30;
     let then = performance.now();
 
     class CardPair {
