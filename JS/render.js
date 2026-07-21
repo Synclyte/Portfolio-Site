@@ -357,7 +357,7 @@ function renderLoop() {
 
 const nearPlane = 0.04; 
 let sphereData = generateSphere(6, 8);
-let pixelation = 3;
+let pixelation = 10;
 let quantisationLevel = 2 ** 4;
 let rotSpeedMult = 1;
 let movDistMult = 1;
@@ -392,6 +392,14 @@ const controlsToggle = document.getElementById("controls-toggle");
 const controlsDisplay = document.getElementById("controls-display");
 const controlsInfo = document.getElementById("controls-info");
 const controlsContent = document.getElementById("controls-content");
+
+const sphereControlsToggle = document.getElementById("sphere-toggle");
+const graphicsControlsToggle = document.getElementById("graphics-toggle");
+const miscControlsToggle = document.getElementById("miscellaneous-toggle");
+
+const sphereControls = document.getElementById("sphere-controls");
+const graphicsControls = document.getElementById("graphics-controls");
+const miscControls = document.getElementById("miscellaneous-controls");
 
 let controlsVisible = false;
 
@@ -440,6 +448,21 @@ const sliderInputs = document.querySelectorAll(".input-pair input");
 sliderInputs.forEach(input => {
     input.dispatchEvent(new Event("input"));
 });
+
+const controlsToggleTemplate = (controls, toggle, name) => {
+    toggle.addEventListener("click", (e) => {
+        console.log(controls.style.display);
+        const visible = controls.style.display === "flex";
+        console.log(visible);
+        controls.style.display = visible ? "none" : "flex";
+        toggle.innerHTML = `<h3>${name} ${visible ? "⯈" : "⯆"}</h3>`;
+        window.dispatchEvent(new Event("resize"));
+    });
+}
+
+controlsToggleTemplate(sphereControls, sphereControlsToggle, "Sphere");
+controlsToggleTemplate(graphicsControls, graphicsControlsToggle, "Graphics");
+controlsToggleTemplate(miscControls, miscControlsToggle, "Miscellaneous");
 
 syncResolution();
 requestAnimationFrame(renderLoop);

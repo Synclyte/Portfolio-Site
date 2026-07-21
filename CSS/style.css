@@ -131,15 +131,14 @@ canvas {
 .controls {
     z-index: 0;
     border-radius: 15px 15px 0 0;
-    background-color: var(--title-background-colour);
-    width: max-content;
+    background-color: var(--alt-container-colour);
+    min-width: 320px;
     height: fit-content;
     margin-right: 30px;
     margin-left: auto;
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    grid-template-columns: 1fr 1fr;
     pointer-events: none;
 }
 
@@ -153,6 +152,8 @@ canvas {
 
 #controls-toggle {
     border-radius: 15px 15px 0 0;
+    align-self: center;
+    user-select: none;
 }
 
 #controls-toggle:hover {
@@ -167,44 +168,47 @@ canvas {
 
 #controls-display {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     gap: 15px;
     justify-content: space-between;
-    padding-bottom: 15px;
 }
 
-#controls-display h3 {
+.control-section h3 {
     margin: auto;
-    text-align: center;
+    text-align: left;
+    padding: 0 10px;
 }
 
 #controls-display h4 {
     font-weight: 400;
 }
 
-.controls > div {
+.control-list {
     padding: 0 10px;
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.sphere, .graphics {
+.control-section {
     flex: 1;
     min-width: max-content;
 }
 
-.sphere > div, .graphics > div {
-    padding: 5px;
+.control-section > .controls-title {
+    pointer-events: all;
+    user-select: none;
+    cursor: pointer;
+}
+
+.control-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    border-radius: var(--general-border-radius);
-    background-color: var(--title-background-colour);
 }
 
-.sphere > div > div, .graphics > div > div {
+.control-list > div {
     display: flex;
     flex-direction: row;
     align-items: center;

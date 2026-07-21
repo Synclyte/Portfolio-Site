@@ -37,9 +37,11 @@
                 </div>
                 <div id="controls-content" class="controls-content">
                 <div id="controls-display">
-                <div class="sphere">
-                    <h3>Sphere</h3>
-                    <div class="sphere-controls">
+                <div class="sphere control-section">
+                    <div class="controls-title" id="sphere-toggle">
+                        <h3>Sphere ⯆</h3>
+                    </div>
+                    <div class="control-list" id="sphere-controls" style="display: flex">
                         <div class="input-pair">
                             <h4>Move Frequency</h4>
                             <div class="labelled-input">
@@ -71,34 +73,13 @@
                                 <input class="range-slider" id="sphere-size" type="range" min="1" max="50" value="10">
                             </div>
                         </div>
-
-                        <div class="input-pair">
-                            <h4>Camera Distance</h4>
-                            <div class="labelled-input">
-                                <label for="cam-distance" id="cam-distance-label"></label>
-                                <input class="range-slider" id="cam-distance" type="range" min="-20" max="100" value="24">
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="graphics">
-                    <h3>Graphics</h3>
-                    <div class="graphics-controls">
-                        <div class="hover-toggle">
-                            <h4>Toggle Hover</h4>
-                            <label class="switch">
-                                <input type="checkbox" id="toggle-sphere-hover" checked="checked">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-                        <div class="input-pair">
-                            <h4>Light Position</h4>
-                            <div class="labelled-input">
-                                <label for="light-position" id="light-position-label"></label>
-                                <input class="range-slider" id="light-position" type="range" min="-20" max="20" value="10">
-                            </div>
-                        </div>
-
+                <div class="graphics control-section">
+                    <div class="controls-title" id="graphics-toggle">
+                        <h3>Graphics ⯆</h3>
+                    </div>
+                    <div class="control-list" id="graphics-controls" style="display: flex">
                         <div class="input-pair">
                             <h4>Quantisation</h4>
                             <div class="labelled-input">
@@ -111,7 +92,7 @@
                             <h4>Resolution</h4>
                             <div class="labelled-input">
                                 <label for="pixelation-level" id="pixelation-level-label"></label>
-                                <input class="range-slider" id="pixelation-level" type="range" min="1" max="10" value="6">
+                                <input class="range-slider" id="pixelation-level" type="range" min="1" max="10" value="10">
                             </div>
                         </div>
 
@@ -120,6 +101,36 @@
                             <div class="labelled-input">
                                 <label for="sphere-detail" id="sphere-detail-label"></label>
                                 <input class="range-slider" id="sphere-detail" type="range" min="2" max="16" value="6">
+                            </div>
+                        </div>
+
+                        <div class="input-pair">
+                            <h4>Camera Distance</h4>
+                            <div class="labelled-input">
+                                <label for="cam-distance" id="cam-distance-label"></label>
+                                <input class="range-slider" id="cam-distance" type="range" min="-20" max="100" value="24">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="miscellaneous control-section">
+                    <div class="controls-title" id="miscellaneous-toggle">
+                        <h3>Miscellaneous ⯆</h3>
+                    </div>
+                    <div class="control-list" id="miscellaneous-controls" style="display: flex">
+                        <div class="hover-toggle">
+                            <h4>Toggle Hover</h4>
+                            <label class="switch">
+                                <input type="checkbox" id="toggle-sphere-hover" checked="checked">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="input-pair">
+                            <h4>Light Position</h4>
+                            <div class="labelled-input">
+                                <label for="light-position" id="light-position-label"></label>
+                                <input class="range-slider" id="light-position" type="range" min="-20" max="20" value="10">
                             </div>
                         </div>
                     </div>
